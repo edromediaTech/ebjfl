@@ -63,7 +63,7 @@
                 <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
                     <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
                         <div class="bg-dark d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
-                            <i class="fa fa-home text-primary"></i>
+                            <i class="fa fa-users text-primary"></i>
                         </div>
                         <div class="ps-4">
                             <h5 class="text-dark mb-0">Nos Partenaires</h5>
@@ -74,7 +74,7 @@
                 <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
                     <div class="bg-dark shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
                         <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
-                            <i class="fa fa-globe text-dark"></i>
+                            <i class="fa fa-home text-dark"></i>
                         </div>
                         <div class="ps-4">
                             <h5 class="text-white mb-0">Les Stations</h5>

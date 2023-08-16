@@ -3,8 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - ebjfl',
-    title: 'ebjfl',
+    titleTemplate: '%s - Eglise Baptiste Jérusalem de Fort-Liberté',
+    title: 'EBJFL',
     htmlAttrs: {
       lang: 'en'
     },
