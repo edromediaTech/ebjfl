@@ -30,9 +30,8 @@
            
             <div class="col-lg-4 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
-                    <a class="btn btn-sm btn-light btn-sm-square rounded-circle me-2" target="blank" href="https://www.facebook.com/people/Universit%C3%A9-Publique-du-Nord-au-Cap-Ha%C3%AFtien-UPNCH/100063404032463/"><i class="fab fa-facebook-f fw-normal"></i></a>
-                       <a class="btn btn-sm btn-light btn-sm-square rounded-circle me-2" target="blank" href="https://www.instagram.com/explore/tags/universitepubliquedunordaucaphaitien/"><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-light btn-sm-square rounded-circle me-2" target="blank" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-light btn-sm-square rounded-circle me-2" target="blank" href=""><i class="fab fa-instagram fw-normal"></i></a>
                     <a class="btn btn-sm btn-light btn-sm-square rounded-circle" href="https://www.youtube.com/results?search_query=ebjfl"><i class="fab fa-youtube fw-normal"></i></a>
                 </div>
             </div>
