@@ -30,9 +30,9 @@
            
             <div class="col-lg-4 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-light btn-sm-square rounded-circle me-2" target="blank" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                    <a class="btn btn-sm btn-light btn-sm-square rounded-circle me-2" target="blank" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-light btn-sm-square rounded-circle" href="https://www.youtube.com/results?search_query=ebjfl"><i class="fab fa-youtube fw-normal"></i></a>
+                    <a class="btn btn-sm  btn-sm-square rounded-circle me-2" target="blank" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm  btn-sm-square rounded-circle me-2" target="blank" href=""><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm  btn-sm-square rounded-circle" href="https://www.youtube.com/results?search_query=ebjfl"><i class="fab fa-youtube fw-normal"></i></a>
                 </div>
             </div>
              <div class="col-lg-8 text-center text-lg-end mb-2 mb-lg-0">
@@ -60,18 +60,19 @@
         <div id="navbarCollapse" class="collapse navbar-collapse">
           <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="/" class="nav-item nav-link active"><b>Accueil</b></a>          
-            <div class="nav-item dropdown">
+            <a href="/about" class="nav-item nav-link"><b>A Propos</b></a>          
+            <!-- <div class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><b>EBJFL</b></a>
               <div class="dropdown-menu fade-down m-0">
-                <a href="/aboutUs" class="dropdown-item"><b>A Propos</b></a>
+                <a href="/about" class="dropdown-item"><b>A Propos</b></a>
                 <a href="#" class="dropdown-item"><b>Institution</b></a>
                 <a href="#" class="dropdown-item"><b>Staff</b></a>               
               </div>
-            </div>          
-            <a href="/actualites" class="nav-item nav-link"><b>Sermons</b></a>
+            </div>           -->
+            <a href="/videos" class="nav-item nav-link"><b>Vidéos</b></a>
             <a href="/contact" class="nav-item nav-link"><b>Contact</b></a>
-            <a   href="/register" class="nav-item nav-link"><b>Enregistrer</b></a>
-            <a   href="/login" class="nav-item nav-link"><b>Connexion</b></a>
+            <!-- <a   href="/register" class="nav-item nav-link"><b>Enregistrer</b></a> -->
+            <a   href="/login" class="nav-item nav-link"><b><v-icon color="dark">mdi-login</v-icon></b></a>
             <!-- <a   class="nav-item nav-link"    @click="logout"> {{privileges[user.user_level]}}, <i>{{ get_initial(user.name) }}</i></a>
                  -->
 
