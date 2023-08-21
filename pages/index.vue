@@ -99,31 +99,6 @@
     <!-- Facts Start -->
 
 
-    <!-- About Start -->
-    <!-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-7">
-                    <div class="section-title position-relative pb-3 mb-5">
-                        <h5 class="fw-bold text-primary text-uppercase">Présentation de</h5>
-                        <h1 class="mb-0">L'EBJFL</h1>
-                    </div>
-                    <p class="mb-4"> Fondé en 1920, l'Eglise Baptiste Jérusalem de Fort-Liberté, est l'une des plus anciennes églises du département du nord-est avec environ 3,000 membres.</p>
-                  
-                    
-                     <a href="/aboutUs" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Lire Plus</a>
-                </div>
-                <div class="col-lg-5" style="min-height: 500px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-90 rounded wow zoomIn" data-wow-delay="0.9s" src="img/slide33.jpeg" style="object-fit: cover;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- About End -->
-
-
     <!-- Features Start -->
     <div class="container-fluid py-4 wow fadeInUp mt-4" data-wow-delay="0.1s">
         <div class="container py-1">
@@ -147,8 +122,7 @@
                          <div class="position-relative h-100">
                         <img class="position-relative w-100 h-90 rounded wow zoomIn" data-wow-delay="0.1s" src="img/7.jpg" style="object-fit: cover;">
                     </div>                       
-                    </div>
-                    
+                    </div>                    
                 </div>
                
                 <div class="col-lg-4">
@@ -190,120 +164,6 @@
     <!-- Features Start -->
 
   
-    
-
-    <!-- Blog Start -->
-    <!-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" >
-                <h5 class="fw-bold text-primary text-uppercase">Nos Facultés</h5>
-                <p class="mb-0">L’UPNCH offre actuellement des formations au niveau du premier et du deuxième cycle universitaire. </p>
-            </div>
-            <div class="row g-5">
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/index10.jpeg" alt="">                        
-                        </div>
-                        <div class="p-4">                           
-                            <h5 class="mb-3">Cycle Court</h5>   
-                            <p>Cette École supérieure forme des professionnels diplômés en matière de Tourisme, d'Hôtellerie et de la Restauration après trois années d'études à l'université. Après trois années de formation, ...</p>                         
-                            <a class="text-uppercase" href="/CYCLE-COURT">Lire Plus <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/indx25.jpeg" alt="">                            
-                        </div>
-                        <div class="p-4">                           
-                            <h5 class="mb-3">Ecole de Santé Publique et du Travail Social </h5> 
-                            <p>L’École Supérieure de Santé Publique, de Médecine Tropicale et du Travail Social (ESSAP/TS) est une entité académique de l’UPNCH. Le programme de Licence en Santé  ...</p>                          
-                            <a class="text-uppercase" href="/ESSAP">Lire Plus <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/car7.jpeg" alt="">                            
-                        </div>
-                        <div class="p-4">                           
-                            <h5 class="mb-3">Faculté des Sciences de L'Education</h5>  
-                            <p>La Faculté des Sciences de l’Éducation est l’une des Facultés les plus anciennes de l’UPNCH. A compter de l’année universitaire 2022-2023, elle contient cinq ...</p>                         
-                            <a class="text-uppercase" href="/FSE">Lire Plus <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-5">
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/mast.jpeg" alt="">                        
-                        </div>
-                        <div class="p-4">
-                           
-                            <h5 class="mb-3">Master en Economie et Gestion des Collectivités Territoriales (MEGCT)</h5>
-                            <p>Le Master Economie et Gestion des Collectivités Territoriales (MEGCT) a été mis en place au cours de l’année universitaire 2016-2017. Ce programme a pour objectif d’apporter une solide formation à caractéristique professionnalisant  ...</p>
-                            <a class="text-uppercase" href="/MEGCT">Lire Plus <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/esuth.jpeg" alt="">
-                            
-                        </div>
-                        <div class="p-4">
-                           
-                            <h5 class="mb-3">Ecole Supérieure de touriste et d'Hotellerie (ESUTH)</h5>
-                           <p>L’École Supérieure de Tourisme et d'Hôtellerie (ESUTH) est l’une des entités œuvrant dans la formation supérieure que compte l’UPNCH. L’ESUTH a vu le jour en 2011, dans un contexte particulier. Il s’agit pour les dirigeants de l’UPNCH de mettre en place un programme ...</p>
-                            <a class="text-uppercase" href="/ESUTH">Lire Plus <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/megct.jpeg" alt="">
-                            
-                        </div>
-                        <div class="p-4">
-                             <h5 class="mb-3">Faculté des Sciences Administratives et de Gouvernance locale </h5>
-                           <p>La Faculté des Sciences Administratives, Économiques et de Gouvernance locale (FSAE/GL)  compte trois options : Administration des Affaires, Gouvernance locale et Sciences Économiques. L’option en administration des affaires vise ...</p>
-                            <a class="text-uppercase" href="/FAGL">Lire Plus <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Blog Start -->
-    <carousel />
-    <!-- Vendor Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5 mb-5">
-            <div class="bg-white">
-                <div class="owl-carousel vendor-carousel">
-                     <!-- <img src="img/amoirie.jpg" alt="">
-                    <img src="img/loading.gif" alt="">
-                    <img src="img/amoirie.jpg" alt="">
-                    <img src="img/logo.png" alt=""> -->
-                    <!-- <img src="img/vendor-4.jpg" alt="">
-                    <img src="img/vendor-5.jpg" alt="">
-                    <img src="img/vendor-6.jpg" alt="">
-                    <img src="img/vendor-7.jpg" alt="">
-                    <img src="img/vendor-8.jpg" alt="">
-                    <img src="img/vendor-9.jpg" alt=""> -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Vendor End -->
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 

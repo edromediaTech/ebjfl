@@ -120,7 +120,7 @@
         <Nuxt />
       </v-container>
     </v-main>
-   <footerOne />
+   <!-- <footerOne /> -->
     <!-- <v-footer
       :absolute="!fixed"
       app
