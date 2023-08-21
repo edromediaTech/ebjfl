@@ -72,7 +72,7 @@
             <a href="/videos" class="nav-item nav-link"><b>Vidéos</b></a>
             <a href="/contact" class="nav-item nav-link"><b>Contact</b></a>
             <!-- <a   href="/register" class="nav-item nav-link"><b>Enregistrer</b></a> -->
-            <a   href="/login" class="nav-item nav-link"><b><v-icon color="dark">mdi-login</v-icon></b></a>
+            <a   href="#" class="nav-item nav-link"><b><v-icon color="dark">mdi-login</v-icon></b></a>
             <!-- <a   class="nav-item nav-link"    @click="logout"> {{privileges[user.user_level]}}, <i>{{ get_initial(user.name) }}</i></a>
                  -->
 
