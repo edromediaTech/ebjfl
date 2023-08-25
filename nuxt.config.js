@@ -55,7 +55,9 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
   ],
-
+  sitemap: {
+    hostname: 'https://ebjfl.org',
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
