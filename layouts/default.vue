@@ -1,16 +1,18 @@
 <template>
     <div>
       <header>
-        <h1>Dorvenica</h1>
+        <!-- Main navigation container -->
+
+        
         <!-- <nav>
           <nuxt-link to="/">Accueil</nuxt-link>
           <nuxt-link to="/about">À propos</nuxt-link>
         </nav> -->
         
-<nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+ <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <nuxt-link to="/" class="flex items-center">
-      <img src="img/logo .png" class="h-8 mr-3" alt="Dorvenica"  >
+      <img src="img/logo .png" class="h-8 mr-3" alt="Dorvenica">
       <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Dorvenica</span>
   </nuxt-link>
   <div class="flex md:order-2">
@@ -37,12 +39,12 @@
         <nuxt-link to="/contact" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/login" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Nous rejoindre</nuxt-link>
+        <nuxt-link to="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Nous rejoindre</nuxt-link>
       </li>
     </ul>
   </div>
   </div>
-</nav>
+</nav> 
 
       </header>
   
@@ -57,6 +59,7 @@
   </template>
   
   <script>
+  
   export default {
     name: 'DefaultLayout',
   }

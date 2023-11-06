@@ -1,8 +1,7 @@
 <template>
   <v-container>
-  
-  <Tutorial/>
- 
+   
+    <Tutorial />
 </v-container>
 </template>
 
