@@ -119,9 +119,9 @@
                         </div> <!-- main form -->
                     </div> <!--  contact from -->
                 </div>
-                <div class="col-lg-7 gray-bg">
-                    <div class="contact-address">
-                        <div class="contact-heading">
+                <div class="col-lg-7 col-md-6 col-sm-12 gray-bg">
+                    <div class="contact-address gray-bg">
+                        <div class="contact-heading ">
                             <h5>Adresse</h5>
                             
                         </div>
@@ -152,8 +152,7 @@
                                     <div class="icon">
                                         <i class="fa fa-envelope-o"></i>
                                     </div>
-                                    <div class="cont">
-                                        <h6>dorvenicauniversity@gmail.com</h6>
+                                    <div class="cont">                                       
                                         <h6>info@dorvenica.univ.ht</h6>
                                     </div>
                                 </div> <!-- singel address -->

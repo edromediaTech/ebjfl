@@ -15,8 +15,7 @@
                             <p>Dorvenica University</p>
                             <ul class="mt-1">
                                 <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>                               
-                                <li><a href="dorvenicauniversity@gmail.com"><i class="fa fa-google-plus"></i></a></li>
-                               
+                                <li><a href="dorvenicauniversity@gmail.com"><i class="fa fa-google-plus"></i></a></li>                               
                             </ul>
                         </div> <!-- footer about -->
                     </div>
@@ -31,11 +30,9 @@
                                 <li><a href="#"><i class="fa fa-angle-right"></i>Programme</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right"></i>News</a></li>
                                 <li><a href="contact"><i class="fa fa-angle-right"></i>Contact</a></li>
-                            </ul>
-                            
+                            </ul>                            
                         </div> <!-- footer link -->
-                    </div>
-                 
+                    </div>                 
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="footer-address mt-40">
                             <div class="footer-title pb-25">
@@ -64,7 +61,8 @@
                                         <i class="fa fa-envelope-o"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>info@yourmail.com</p>
+                                        <p>info@dorvenica.univ.ht <br>
+                                           dorvenicauniversity@gmail.com</p>
                                     </div>
                                 </li>
                             </ul>
@@ -79,13 +77,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="copyright text-md-left text-center pt-1">
-                            <p style="font-size:12px;" class="mb-0">&copy; 2023 </p>
-                               
+                            <p style="font-size:12px;" class="mb-0">&copy; 2023 </p>                               
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="copyright text-md-right text-center pt-2">
-                            <p>  <a target="_blank" href="https://www.edromedia.com" style="font-size:12px; color: white;" class="mb-0">Design By Edromedia</a></p>
+                            <p><a target="_blank" href="https://www.edromedia.com" style="font-size:12px; color: white;" class="mb-0">Design By Edromedia</a></p>
                         </div>
                     </div>
                    

@@ -8,8 +8,7 @@
       icon="mdi-message"
       title="Messages"
       class="px-5 py-3 mt-4"
-    >
-   
+    >   
     <v-progress-circular
           v-show="visible"
           :size="20"
@@ -43,9 +42,9 @@
       </td>
     </template>
           
-        <template #top>
-          <v-toolbar flat>
-             <v-btn
+    <template #top>
+    <v-toolbar flat>
+    <v-btn
       class="mx-4 px-4"
       fab
       dark
