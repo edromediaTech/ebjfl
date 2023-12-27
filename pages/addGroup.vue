@@ -33,10 +33,10 @@
                         >
                           <v-text-field
                             v-model="editedItem.sigle"
-                            prepend-icon="mdi-"
+                            
                             label="Sigle"
                              maxlength="10"
-                             :rules="[v => !!v || 'Champ obligatoire']"
+                           
                              required
                           />
                         </v-col>    
@@ -75,6 +75,7 @@
                           <v-text-field
                             v-model="editedItem.responsable"
                             prepend-icon="mdi-account"
+                            :rules="[v => !!v || 'Champ obligatoire']"
                             label="Responsable*"
                              maxlength="50"
                           />
@@ -112,6 +113,7 @@
                           <v-text-field
                             v-model="editedItem.whatsapp"
                             prepend-icon="mdi-whatsapp"
+                            :rules="[v => !!v || 'Champ obligatoire']"
                             label="Whatsapp*"                                                
                              maxlength="15"
                           />
@@ -120,13 +122,13 @@
                   
                   <v-card-actions>
                     <v-spacer />
-                    <v-btn
+                    <!-- <v-btn
                       color="blue darken-1"
                       text
                       @click="close"
                     >
                       Cancel
-                    </v-btn>
+                    </v-btn> -->
                     <v-btn
                       color="blue darken-1"
                       text
@@ -174,7 +176,7 @@
         transferts:[],
         centres: [],
         emailRules: [
-                (v) => !!v || 'E-mail obligatoire',
+                (v) => !!v || 'E-mail doit être valide',
                 (v) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail doit être valide'
               ],
             
@@ -191,7 +193,7 @@
           whatsapp: ''
           },
         defaultItem: {
-           nom:'',
+          nom:'',
           prenom: '',
           sexe: '',
           naissance: '',        
@@ -321,7 +323,7 @@
   
        
       async storeGroupe () {  
-           if(this.editedItem.nom ==='' || this.editedItem.telephone ==='' || this.editedItem.responsable===''){
+           if(this.editedItem.nom ==='' || this.editedItem.whatsapp ==='' || this.editedItem.responsable===''){
              this.$notifier.showMessage({ content: 'Veuillez saisir les champs obligatoires', color: 'error' })
             return false  
           } 
