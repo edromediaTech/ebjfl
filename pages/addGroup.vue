@@ -130,6 +130,7 @@
                       Cancel
                     </v-btn> -->
                     <v-btn
+                    :disabled="editedItem.nom ==='' || editedItem.responsable ==='' || editedItem.whatsapp ===''"
                       color="blue darken-1"                    
                       @click="storeGroupe"
                     >
