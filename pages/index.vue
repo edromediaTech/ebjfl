@@ -1,309 +1,186 @@
 <template>
-    <v-container fluid>
-      
+    <div>       
+
 <head>
-   
-    <!--====== Required meta tags ======-->
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!--====== Title ======-->
-    <title>Dorvenica University - Dorvenica the Best University</title>
-    
-    <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <title>EBJFL - Atteindre la communauté pour Christ.</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Eglise Baptiste Jérusalem de Fort-Liberté" name="keywords">
+    <meta content="Eglise Baptiste Jérusalem de Fort-Liberté" name="description">
 
-    <!--====== Slick css ======-->
-    <link rel="stylesheet" href="css/slick.css">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
 
-    <!--====== Animate css ======-->
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <!--====== Nice Select css ======-->
-    <link rel="stylesheet" href="css/nice-select.css">
-    
-    <!--====== Nice Number css ======-->
-    <link rel="stylesheet" href="css/jquery.nice-number.min.css">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!--====== Magnific Popup css ======-->
-    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    
-    <!--====== Fontawesome css ======-->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    
-    <!--====== Default css ======-->
-    <link rel="stylesheet" href="css/default.css">
-    
-    <!--====== Style css ======-->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <!--====== Responsive css ======-->
-    <link rel="stylesheet" href="css/responsive.css">
-  
-  
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-  
    
-   <carousel class="pb-0 mb-1 gray-bg" />
+<div>
+        <div  class="container-fluid position-relative p-0"> 
+        <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom:40px;">
+            <div class="row py-5">
+                <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+                    <h5 class="display-5 text-white animated zoomIn mt-6 py-4">Bienvenue sur la plateforme de l'EBJFL</h5>
+                    <a href="" class="h5 text-white mt-4">Atteindre la communauté pour Christ.</a>
+                      <!-- <i class="far fa-circle text-white px-2"></i>
+                    <a href="" class="h5 text-white">Pour un savoir intégral et transformateur</a>
+                      <i class="far fa-circle text-white px-2"></i> -->
+                   
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="col-12 pt-lg-3 mt-lg-3 text-center">                   
+                    <h1 class="display-3 text-white animated zoomIn mt-6 py-4">Eglise Baptiste Jérusalem <br> de Fort-Liberté  </h1>                   
+                </div>
+            </div>
+        </div>
+    </div> 
+         
+    </div>
 
-   
-    <!--====== CATEGORY PART START ======-->
-    
-    <!-- <section id="category-part" >
-        <div class="container">
-            <div class="category pt-4 pb-8">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="category-text pt-4">
-                            <h2>Dorvenica the Best University</h2>
+    <!-- Facts Start -->
+    <div class="container-fluid facts py-1 pt-lg-0 mb-4 mt-2">
+        <div class="container py-0 pt-lg-0">
+            <div class="row gx-0 mt-4">                
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
+                    <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                        <div class="bg-dark d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                            <i class="fa fa-users text-primary"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="text-dark mb-0">Nos Partenaires</h5>
+                            <!-- <h1 class="text-white mb-0" data-toggle="counter-up">12345</h1> -->
                         </div>
                     </div>
-                    <div class="col-lg-6 offset-lg-1 col-md-8 offset-md-2 col-sm-8 offset-sm-2 col-8 offset-2">
-                        <div class="row category-slied mt-4">
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-1">
-                                        <span class="icon">
-                                            <img src="images/all-icon/ctg-1.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Language</span>
-                                        </span>
-                                    </span> 
-                                </a>
-                            </div>
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-2">
-                                        <span class="icon">
-                                            <img src="images/all-icon/ctg-2.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Business</span>
-                                        </span>
-                                    </span> 
-                                </a>
-                            </div>
-                            <div class="col-lg-4">
-                                <a href="#">
-                                    <span class="singel-category text-center color-3">
-                                        <span class="icon">
-                                            <img src="images/all-icon/ctg-3.png" alt="Icon">
-                                        </span>
-                                        <span class="cont">
-                                            <span>Literature</span>
-                                        </span>
-                                    </span> 
-                                </a>
-                            </div>
-                           
-                            
+                </div>
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="bg-dark shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                            <i class="fa fa-home text-dark"></i>
                         </div>
-                    </div> -->
-                <!-- </div> -->
-                 <!-- row -->
-            <!-- </div>  -->
-            <!-- category -->
-        <!-- </div> -->
-         <!-- container -->
-    <!-- </section> -->
-    
-    <!--====== CATEGORY PART ENDS ======-->
-   
-    <!--====== ABOUT PART START ======-->
-    
-    <section id="about-part" class="pt-4  gray-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-title mt-5">
-                        <h5>A Propos de </h5>
-                        <h2>Dorvenica University </h2>
-                    </div> <!-- section title -->
-                    <div class="about-cont">
-                        <p>The Best University <br> </p>
-                        <p>Dorvenica University est une université fondée par le Révérend Père CADOR Jeanty et Mme VELIMA Erna. 
-                            Située  à Christ-Roi la rivière canarie, 
-                            Ouanaminthe dans le departement du Nord’Est, Haiti.
-                        </p>
-                        <a href="#" class="main-btn mt-2">Lire Plus</a>
+                        <div class="ps-4">
+                            <h5 class="text-white mb-0">Les Stations</h5>
+                            <!-- <h1 class="mb-0" data-toggle="counter-up">12345</h1> -->
+                        </div>
                     </div>
-                </div> <!-- about cont -->
-                <div class="col-lg-6 ">
-                    
-    <!--====== TEACHERS PART START ======-->
-    <br><br>
-    <section id="teachers-part" class="pt-2 pb-0">
-        <div class="container">
-            <div class="row">
-               
-                <div class="col-lg-11 offset-lg-1">
-                    <div class="teachers mt-20">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <a href="/staff-1"><div class="singel-teachers mt-3 text-center">
-                                    <div class="image">
-                                        <img src="img/jeanty.jpeg" alt="Teachers">
-                                    </div>
-                                    <div class="cont">
-                                        <h6>Jeanty CADOR</h6>
-                                        <span>Fondateur</span>
-                                    </div>
-                                </div> </a><!-- singel teachers -->
-                            </div>
-                            <div class="col-sm-6">
-                                <a href="staff-2"><div class="singel-teachers mt-3 text-center">
-                                    <div class="image">
-                                        <img src="img/ema.jpeg" alt="Teachers">
-                                    </div>
-                                    <div class="cont">
-                                        <h6>Erna VELIMA</h6>
-                                        <span>Co-Fondatrice</span>
-                                    </div>
-                                </div></a> <!-- singel teachers -->
-                            </div>
-                           
-                            
-                        </div> <!-- row -->
-                    </div> <!-- teachers -->
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section>
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
+                    <div class="bg-white shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                        <div class="bg-dark d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                            <i class="fa fa-book-open text-white"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="text-dark mb-0">Nos Institutions</h5>
+                            <!-- <h1 class="text-white mb-0" data-toggle="counter-up">12345</h1> -->
+                        </div>
+                    </div>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-       
-   
-    
-  
-    
-    <!--====== VIDEO FEATURE PART START ======-->
-    
-    <section id="video-feature" class="bg_cover mt-50 pb-0 " style="background-image: url(img/dorvenica1.jpeg)">
-        <div class="container">
-            <div class="row align-items-center ">
-                <div class="col-lg-6 order-last order-lg-first">
-                    <div class="video text-lg-left text-center pt-4">
+            </div>
+        </div>
+    </div>
+    <!-- Facts Start -->
+
+
+    <!-- Features Start -->
+    <div class="container-fluid py-4 wow fadeInUp mt-4" data-wow-delay="0.1s">
+        <div class="container py-1">
+            <div class="section-title text-center position-relative pb-1 mb-3 mt-4 mx-auto" >
+                <h3 class="mt-4">Présentation de <span>l’EBJFL </span></h3>
+            </div>  
+                       
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="row g-5">
+                        <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
+                            <!-- <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fa fa-users-cog text-white"></i>
+                            </div> -->
+                            <h4>Qui sommes-nous ?</h4>
+                            <p class="mb-0">                               
+                                 Fondé en 1920, l'Eglise Baptiste Jérusalem de Fort-Liberté, est l'une des plus anciennes églises du département du nord-est avec environ 3,000 membres.</p>
                         
-                    </div> <!-- row -->
+                         <a class="text-uppercase" href="/about">Lire Plus <i class="bi bi-arrow-right"></i></a>
+                         </div>
+                         <div class="position-relative h-100">
+                        <img class="position-relative w-100 h-90 rounded wow zoomIn" data-wow-delay="0.1s" src="img/7.jpg" style="object-fit: cover;">
+                    </div>                       
+                    </div>                    
                 </div>
-                <div class="col-lg-5 offset-lg-1 ">
-                    <div class="feature pt-1">
-                        <div class="feature-title">
-                            <h3>Nos Offres</h3>
+               
+                <div class="col-lg-4">
+                    <div class="row g-5">
+                        <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
+                            <!-- <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fa fa-cubes text-white"></i>
+                            </div> -->
+                            <h4>Qu’offrons-nous ?</h4>
+                            <p class="mb-0">L’EBJFL désire offrir une place pour chacun. L’EBJFL désire soutenir de son mieux toutes les catégories d’âge, allant des enfants aux adultes.</p>
+                        
+                         <a class="text-uppercase" href="/about">Lire Plus <i class="bi bi-arrow-right"></i></a>
+                         </div>
+                         <div class="position-relative h-100">
+                        <img class="position-relative w-100 h-90 rounded wow zoomIn" data-wow-delay="0.1s" src="img/8.jpg" style="object-fit: cover;">
+                    </div>                        
+                    </div>
+                    
+                </div>
+                 <div class="col-lg-4">
+                    <div class="row g-5">
+                   <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
+                            <!-- <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fa fa-hierarchy text-white"></i>
+                            </div> -->
+                            <h4>Comment nous nous organisons ?</h4>
+                            <p class="mb-0">En vue de rester connecté l’un à l’autre, l’EBJFL s’organise de façon hiérarchisé. Le pasteur ...</p>
+                           <a class="text-uppercase" href="/about">Lire Plus <i class="bi bi-arrow-right"></i></a>                        
                         </div>
-                        <ul>
-                            <li>
-                                <div class="singel-feature">
-                                    <div class="icon">
-                                        <img src="images/all-icon/f-1.png" alt="icon">
-                                    </div>
-                                    <div class="cont">
-                                        <h4>Diplôme et Master</h4>
-                                       
-                                    </div>
-                                </div> <!-- singel feature -->
-                            </li>
-                            <li>
-                                <div class="singel-feature">
-                                    <div class="icon">
-                                        <img src="images/all-icon/f-2.png" alt="icon">
-                                    </div>
-                                    <div class="cont">
-                                        <h4>Supports</h4>
-                                        <!-- <p>Gravida nibh vel velit auctor aliquetn auci elit cons solliazcitudirem sem quibibendum sem nibhutis.</p>
-                                    -->
-                                    </div>
-                                </div> <!-- singel feature -->
-                            </li>
-                            <li>
-                                <div class="singel-feature">
-                                    <div class="icon">
-                                        <img src="images/all-icon/f-3.png" alt="icon">
-                                    </div>
-                                    <div class="cont">
-                                        <h4>Bibliothèque</h4>
-                                        <!-- <p>Gravida nibh vel velit auctor aliquetn auci elit cons solliazcitudirem sem quibibendum sem nibhutis.</p>
-                                     -->
-                                    </div>
-                                </div> <!-- singel feature -->
-                            </li>
-                        </ul>
-                    </div> <!-- feature -->
+                         
+                    <div class="position-relative h-100">
+                        <img class="position-relative w-100 h-90 rounded wow zoomIn" data-wow-delay="0.1s" src="img/30.jpg" style="object-fit: cover;">
+                    </div>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-        <div class="feature-bg"></div> <!-- feature bg -->
-    </section>
-</section>
-    <!--====== VIDEO FEATURE PART ENDS ======-->
-   
-    
-    
-   
-   
-    <!--====== BACK TO TP PART START ======-->
-    
-    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-    
-    <!--====== BACK TO TP PART ENDS ======-->
-   
-    
-    
-    
-    
-    
-    
-    
-    <!--====== jquery js ======-->
-    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- Features Start -->
 
-    <!--====== Bootstrap js ======-->
-    <script src="js/bootstrap.min.js"></script>
-    
-    <!--====== Slick js ======-->
-    <script src="js/slick.min.js"></script>
-    
-    <!--====== Magnific Popup js ======-->
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    
-    <!--====== Counter Up js ======-->
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    
-    <!--====== Nice Select js ======-->
-    <script src="js/jquery.nice-select.min.js"></script>
-    
-    <!--====== Nice Number js ======-->
-    <script src="js/jquery.nice-number.min.js"></script>
-    
-    <!--====== Count Down js ======-->
-    <script src="js/jquery.countdown.min.js"></script>
-    
-    <!--====== Validator js ======-->
-    <script src="js/validator.min.js"></script>
-    
-    <!--====== Ajax Contact js ======-->
-    <script src="js/ajax-contact.js"></script>
-    
-    <!--====== Main js ======-->
+  
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    
-    <!--====== Map js ======-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
-    <script src="js/map-script.js"></script>
-
 </body>
 
 
-    </v-container>
+    </div>
 </template>

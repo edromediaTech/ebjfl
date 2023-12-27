@@ -4,7 +4,7 @@ export default {
   // mode:'universal',
     
   env: {        
-     baseURL: process.env.BASE_URL  || 'https://backend.univ.ht/api/' 
+     baseURL: process.env.BASE_URL  || 'https://backend.ebjfl.org/api/' 
    // baseURL: process.env.API_URL  || 'http://192.168.43.4:3000/api/' 
     
   },
@@ -18,16 +18,14 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - DORVENICA',
-    title: 'Université DORVENICA',
+    titleTemplate: '%s - Eglise Baptiste Jérusalem de Fort-Liberté',
+    title: 'EBJFL',
     htmlAttrs: {
       lang: 'en'
     },
-  
-
     meta: [
       { charset: 'utf-8' },
-      {name:'description', content:'Le domaine de l\'Université en Haïti, l\'Université DORVENICA, est accessible à l\'adresse https://dorvenica.univ.ht'},
+      {name:'description', content:'Eglise Baptiste Jérusalem de Fort-Liberté, https://ebjfl.org'},
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
@@ -39,15 +37,13 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/./static/css/style.css',
     '~/./static/css/bootstrap.min.css',
-    
+    '~/./static/css/style.css'
   ],
 
   script: [
     {
      scr: '/./static/js/main.js',
-    
     //  src: '/./static/ckeditor'
     }
   ],
@@ -95,7 +91,7 @@ export default {
 
   sitemap :{
     // path: '/sitemap.xml', // L'emplacement de votre fichier sitemap.
-    hostname: 'https://dorvenica.univ.ht', // L'adresse de votre site, que vous pouvez placer comme ici dans une variable d'environnement.
+    hostname: 'https://ebjfl.org', // L'adresse de votre site, que vous pouvez placer comme ici dans une variable d'environnement.
    // cacheTime: 1000 * 60 * 15, // La durée avant que le sitemap soit regénéré. Ici 15mn.
    // gzip: true,
    // generate: false, // Génère une version statique du sitemap quand activé. À utiliser avec nuxt generate.
@@ -113,8 +109,8 @@ export default {
  
   axios: {
     // univ_id upga : 63fa995f10a11be85bee30d5
-        baseUrl: 'https://backend.univ.ht/api/',
-     //    baseUrl : 'http://192.168.0.100:3000/api/',
+       // baseUrl: 'https://backend.ebjfl.org/api/',
+        baseUrl : 'http://192.168.1.108:3000/api/',
     //  baseUrl : 'http://172.20.10.2:3000/api/',
     //  baseUrl : 'http://localhost:3001/api/',
    //   credentials: true,
