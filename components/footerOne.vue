@@ -38,8 +38,8 @@
                                 </div>
                                 <div class="d-flex mt-4">
                                     <a class="btn btn-light btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
-                                    <a class="btn btn-light btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
-                                    <a class="btn btn-light btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                                    <a class="btn btn-light btn-square me-2" href="https://web.facebook.com/EBJFL/"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                    <a class="btn btn-light btn-square me-2" href="https://www.youtube.com/results?search_query=ebjfl"><i class="fab fa-youtube-in fw-normal"></i></a>
                                     <a class="btn btn-light btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
                                 </div>
                             </div>
