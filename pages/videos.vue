@@ -30,81 +30,21 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>  
+    <v-container>
+      <youtube
+        :video-id="currentVideoId"
+        :api-key="apiKey"
+        @ready="onPlayerReady"
+        @state-change="onPlayerStateChange"
+      ></youtube>
+      <v-btn @click="changeVideo">Changer la vidéo</v-btn>
+    </v-container>
 
     <!-- Blog Start -->
-    <div class="container-fluid py-1 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-1">
-            <div class="row">
-                  <div class="col-md-6 ">
-                            <div class="blog-item bg-light rounded overflow-hidden">
-                                <div class="">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/oBUagaEduvc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                  
+    <!-- <div v-for="actualite in show.actualites" :key="actualite._id">   -->
                 
-                                   </div>
-                                <div class="p-4">
-                                    <div class="d-flex mb-1">
-                                        <small><i class="far fa-calendar-alt text-primary me-2"></i>13 Aout, 2023</small>
-                                    </div>                                    
-                                    <p>Fête de moisson de la Station Béthanie de Dumas</p>                                    
-                                </div>
-                            </div>
-                        </div>                           
-                  <div class="col-md-6 ">
-                            <div class="blog-item bg-light rounded overflow-hidden">
-                                <div class="">
-                                   <iframe width="560" height="315" src="https://www.youtube.com/embed/XXl2A4ID_Mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                   </div>
-                                <div class="p-4">
-                                    <div class="d-flex mb-1">
-                                        <small><i class="far fa-calendar-alt text-primary me-2"></i>13 Aout, 2023</small>
-                                    </div>                                    
-                                    <p>Service d'Adoration du dimanche 13 Aout 2023 Part I</p>                                    
-                                </div>
-                            </div>
-                        </div>                           
-                  <div class="col-md-6 ">
-                            <div class="blog-item bg-light rounded overflow-hidden">
-                                <div class="">
-                                  <iframe width="560" height="315" src="https://www.youtube.com/embed/jeYINZZNepg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                
-                                   </div>
-                                <div class="p-4">
-                                    <div class="d-flex mb-1">
-                                        <small><i class="far fa-calendar-alt text-primary me-2"></i>13 Aout, 2023</small>
-                                    </div>                                    
-                                    <p>Service d'Adoration du dimanche 13 Aout 2023 Part II</p>                                    
-                                </div>
-                            </div>
-                        </div>                           
-                  <div class="col-md-6 ">
-                            <div class="blog-item bg-light rounded overflow-hidden">
-                                <div class="">
-                                  <iframe width="560" height="315" src="https://www.youtube.com/embed/V5niOnwVpY8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            
-                                   </div>
-                                <div class="p-4">
-                                    <div class="d-flex mb-1">
-                                        <small><i class="far fa-calendar-alt text-primary me-2"></i>06 Aout, 2023</small>
-                                    </div>                                    
-                                    <p>Service d'Adoration du dimanche 06 Aout 2023 </p>                                    
-                                </div>
-                            </div>
-                        </div>                           
-                  <div class="col-md-6 ">
-                            <div class="blog-item bg-light rounded overflow-hidden">
-                                <div class="">
-                                   <iframe width="560" height="315" src="https://www.youtube.com/embed/wAnAzMpKvl0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                
-                                   </div>
-                                <div class="p-4">
-                                    <div class="d-flex mb-1">
-                                        <small><i class="far fa-calendar-alt text-primary me-2"></i>30 Juillet, 2023</small>
-                                    </div>                                    
-                                    <p>Service d'Adoration du dimanche 30 Juillet 2023</p>                                    
-                                </div>
-                            </div>
-                        </div>                           
-                             
-            </div>
-        </div>
-    </div>
+         <!-- <iframe src="https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UCHKMPdWk5nuFPC_Gr0ACXhw&maxResults=25&key=AIzaSyCGxMLEIeiA4fbJ03ZPmHfQ1q84zHpEhA8" ></iframe> -->
+    <!-- </div> -->
     <!-- Blog End -->
    
     <!-- Back to Top -->
@@ -130,6 +70,8 @@ export default {
   
   data() {
     return {
+        apiKey: 'https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UCHKMPdWk5nuFPC_Gr0ACXhw&maxResults=25&key=AIzaSyCGxMLEIeiA4fbJ03ZPmHfQ1q84zHpEhA8',
+      currentVideoId: 'VIDEO_ID',
        commentaire:{ nom:'', email:'', body:''},
       content: '',  
       commentaires:[], 
@@ -144,7 +86,7 @@ export default {
     }
   },
   mounted (){
-    this.getActualites()
+    this.getVideos()
     
   },
   methods: {
@@ -159,21 +101,18 @@ export default {
         this.show.actualiteId = post._id
 
     },
-    async  getActualites () {  
+    async  getVideos () {  
           this.visible = true       
         //  this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')                  
-            await this.$axios.get('actualite/all/').then( response => { 
-                                                       
-                if(response.status === 201)
-                    if(response.data.length === 0)
-                          this.actualites = []                
-                    else {
+            await this.$axios.get('https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UCHKMPdWk5nuFPC_Gr0ACXhw&maxResults=25&key=AIzaSyCGxMLEIeiA4fbJ03ZPmHfQ1q84zHpEhA8/').then( response => { 
+                                                      
+               
+                       
                         this.actualites = response.data;
                         this.lire(this.actualites[0])
                         this.nbComment = this.show.comments.length
-                    }
-                else                 
-                  this.$notifier.showMessage({ content: 'Aucune actualité récente', color: 'error' })                                
+                                 
+                //  this.$notifier.showMessage({ content: 'Aucune actualité récente', color: 'error' })                                
                  })
             this.visible = false
         },

@@ -9,10 +9,9 @@
         class="px-5 py-3 mt-4"
       > -->
   
-        <v-card class="px-4 mt-2 mx-4">
-                    
+        <v-card class="px-4 mt-2 mx-4">                    
                       <v-row>
-                            <v-col
+                          <v-col
                           cols="12"
                           sm="6"
                           md="6"
@@ -39,9 +38,8 @@
                            
                              required
                           />
-                        </v-col>    
-                      
-                     
+                        </v-col>  
+                                           
                         <v-col
                           cols="12"
                           sm="6"
@@ -129,6 +127,14 @@
                     >
                       Cancel
                     </v-btn> -->
+                    <v-progress-circular
+                  v-show="visible"
+                  :size="30"
+                  :width="3"
+                  color="info"
+                  indeterminate
+                  class="ma-auto"
+                  /> 
                     <v-btn
                     :disabled="editedItem.nom ==='' || editedItem.responsable ==='' || editedItem.whatsapp ===''"
                       color="blue darken-1"                    
@@ -136,6 +142,7 @@
                     >
                       Enregistrer
                     </v-btn>
+                            
                   </v-card-actions>
                 </v-card>
                  
@@ -323,6 +330,7 @@
   
        
       async storeGroupe () {  
+       
            if(this.editedItem.nom ==='' || this.editedItem.whatsapp ==='' || this.editedItem.responsable===''){
              this.$notifier.showMessage({ content: 'Veuillez saisir les champs obligatoires', color: 'error' })
             return false  
@@ -334,8 +342,17 @@
                                  
                 // console.log(res.error.code)                  
             if (res.status === 201) {
-               this.membres.push(res.data)             
-               this.$notifier.showMessage({ content: 'Enregistrement réussi', color: 'success' })    
+               this.membres.push(res.data) 
+               this.editedItem.nom=''
+                this.editedItem.sigle= ''          
+                this.editedItem.responsable= ''        
+                this.editedItem.fondation=''
+                this.editedItem.email=''
+                this.editedItem.maestro= ''
+                this.editedItem.telephone = ''
+                this.editedItem.whatsapp= ''            
+               this.$notifier.showMessage({ content: 'Enregistrement réussi', color: 'success' })  
+                         
             } 
             
            else {
