@@ -4,7 +4,8 @@ export default {
   // mode:'universal',
     
   env: {        
-     baseURL: process.env.BASE_URL  || 'https://backend.ebjfl.org/api/' 
+     baseURL: process.env.BASE_URL  || 'https://backend.ebjfl.org/api/' ,
+     youtubeApiKey:'AIzaSyACGhdEH-5a94q_r6dTSnlCgp9loQKb7b0'
    // baseURL: process.env.API_URL  || 'http://192.168.43.4:3000/api/' 
     
   },
@@ -68,9 +69,7 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/moment',
-
-    ['@nuxtjs/moment',{}],
-    
+    ['@nuxtjs/moment',{}],    
   ],
   
   moment : {
@@ -109,8 +108,8 @@ export default {
  
   axios: {
     // univ_id upga : 63fa995f10a11be85bee30d5
-       baseUrl: 'https://backend.ebjfl.org/api/',
-       // baseUrl : 'http://192.168.1.108:3000/api/',
+      // baseUrl: 'https://backend.ebjfl.org/api/',
+        baseUrl : 'http://192.168.0.104:3000/api/',
     //  baseUrl : 'http://172.20.10.2:3000/api/',
     //  baseUrl : 'http://localhost:3001/api/',
    //   credentials: true,
@@ -150,5 +149,13 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend(config, { isDev, isClient }) {
+      config.module.rules.push({
+        test: /\.json$/,
+        loader: 'json-loader',
+        type: 'javascript/auto',
+      });
+      // Ajoutez des chargeurs ou configurations webpack ici
+    }
   }
 }

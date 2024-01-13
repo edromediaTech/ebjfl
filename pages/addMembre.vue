@@ -373,6 +373,7 @@
 </template>
 <script>
 
+import {createCode} from '../helper.js'
 import membreZone from '~/components/membreZone';
    export default {
   components: { membreZone},    
@@ -389,6 +390,7 @@ import membreZone from '~/components/membreZone';
       zoneNom:'',
       zone:'',
       zones:[],
+      codeZone:'',
       district: '',
       districts: [],
       clas :[],
@@ -406,6 +408,7 @@ import membreZone from '~/components/membreZone';
       centres: [],
       editedIndex: -1,
       editedItem: {
+        code:'',
         nom:'',
         prenom: '',
         sexe: '',
@@ -417,6 +420,7 @@ import membreZone from '~/components/membreZone';
         baptise: ''
         },
       defaultItem: {
+        code:'',
          nom:'',
         prenom: '',
         sexe: '',
@@ -488,23 +492,19 @@ import membreZone from '~/components/membreZone';
 
     methods: {
 
-      getMembres(){
-                 
-                 // this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')
-                this.visible = true 
-             this.membres = [] 
+      getMembres(){                 
+        // this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')
+            this.visible = true 
+             this.membres = []
+            
             this.dataZones.forEach((d) =>{              
-              if(d.membres[0].zone_id === this.zone){
-                
-                 const da = d.membres 
-                 this.dataMembres = da             
-              // for(let i =0; i<da.length; i++){               
+               if(d._id === this.zone){                           
+                    const da = d.membres 
+                    this.dataMembres = da              
                     this.membres = d.membres            
-               // }  
-               this.visible = false               
-          return true
-         
-            }       
+                    this.visible = false               
+                   return true         
+           }       
               
           }) 
           
@@ -559,9 +559,10 @@ import membreZone from '~/components/membreZone';
             this.dataDistricts.forEach((d) =>{              
               if(d.zones[0].district === this.district){
                 const da = d.zones 
-                this.dataZones = da             
+                this.dataZones = da         
+                          
                 for(let i =0; i<da.length; i++){               
-                   this.zones.push({text:da[i].nom, value:da[i]._id})              
+                   this.zones.push({text:da[i].nom, value:da[i]._id})                
                 }  
                             
           return true
@@ -573,53 +574,11 @@ import membreZone from '~/components/membreZone';
            },
 
     
-       
-      
-       async getMembresByZone(){ 
-         
-        this.visible = true               
-              // this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')
-                await this.$axios.get('eleve/all/'+this.zone).then( response => {  
-                                                          
-                if(response.status === 201)
-                    if(response.data.length === 0){
-                          this.membres = []  
-                          this.nbMembre = [] 
-                    }            
-                    else {
-                    this.getSalles()  
-                  
-                     this.nbMembre = this.membres.length
-                     
-                    }
-                else                 
-                 this.$notifier.showMessage({ content: 'Elève introuvable', color: 'error' })                                
-                 })
-                 this.visible = false
-        },  
-        
-          
-    //   getEleveBySalle(tabEleve, classe) {
-    //     const eleves = []
-    //       let trouve = null
-    //      tabEleve.forEach(function(el){
-    //           el.classe.forEach(function(e){ 
-    //                  trouve = false                 
-    //                   if(e.classe_id === classe && e.annee === localStorage.anac)
-    //                     trouve = true                         
-    //         })
-    //         if(trouve)
-    //         eleves.push(el)
-    //     })
-    //     return eleves
-
-    //   },
-
-  deleteEleve (eleve) {          
-        this.$axios.delete('eleve/' + eleve._id).then(res => {         
-          if (res.status === 200) {
-             this.nbEleve = this.membres.length 
-            this.$notifier.showMessage({ content: 'Elève supprimé', color: 'success' })            
+     
+  deleteMembre (membre) {          
+        this.$axios.delete('membre/' + membre._id).then(res => {         
+          if (res.status === 200) {              
+              this.$notifier.showMessage({ content: 'Suppression réussie', color: 'success' })            
             return true 
             } 
             else {           
@@ -627,7 +586,7 @@ import membreZone from '~/components/membreZone';
         })
       },
 
-      updateEleve (eleve) {  
+    updateEleve (eleve) {  
         this.visible = true  
          this.editedItem.classe_id = this.classe        
          this.editedItem.salle_id = this.salle        
@@ -646,13 +605,13 @@ import membreZone from '~/components/membreZone';
 
 
      editItem (item) {      
-        this.editedIndex = this.eleves.indexOf(item)
+        this.editedIndex = this.membres.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
      },
 
       deleteItem (item) {
-        this.editedIndex = this.eleves.indexOf(item)
+        this.editedIndex = this.membres.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogDelete = true
       },
@@ -663,18 +622,18 @@ import membreZone from '~/components/membreZone';
         //         this.closeDelete()    
         //        return false
         //   }
-        this.deleteEleve(this.editedItem)       
-        this.eleves.splice(this.editedIndex, 1)
+        this.deleteMembre(this.editedItem)       
+        this.membres.splice(this.editedIndex, 1)
         this.closeDelete()
       },
 
     save () {              
          if (this.editedIndex > -1) {          
-            this.updateEleve(this.editedItem)
-            Object.assign(this.eleves[this.editedIndex], this.editedItem)
+            this.updatemembre(this.editedItem)
+            Object.assign(this.membres[this.editedIndex], this.editedItem)
           } 
          else {
-               this.storeEleve()
+               this.storeMembre()
             }
           this.close()
       },
@@ -715,7 +674,9 @@ import membreZone from '~/components/membreZone';
            this.$notifier.showMessage({ content: 'Veuillez saisir les champs obligatoires', color: 'error' })
           return false  
         } 
-        this.visible = true        
+        this.visible = true  
+        this.editedItem.code = createCode(this.dataMembres,this.dataZones, this.zone, this.editedItem.sexe) 
+        alert(this.editedItem.code)     
            this.editedItem.zone = this.zone           
         this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.authToken         
         await this.$axios.post('membre/', this.editedItem).then(res => {                           
@@ -745,11 +706,11 @@ import membreZone from '~/components/membreZone';
            }        
      
         if (this.editedIndex > -1) {
-           this.updateEleve(this.editedItem)
-          Object.assign(this.eleves[this.editedIndex], this.editedItem)
+           this.updateMembre(this.editedItem)
+          Object.assign(this.membres[this.editedIndex], this.editedItem)
             } 
             else {
-               this.storeEleve()
+               this.storeMembre()
             }
           this.close()
       },

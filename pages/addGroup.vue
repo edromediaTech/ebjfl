@@ -351,18 +351,16 @@
                 this.editedItem.maestro= ''
                 this.editedItem.telephone = ''
                 this.editedItem.whatsapp= ''            
-               this.$notifier.showMessage({ content: 'Enregistrement réussi', color: 'success' })  
+               this.$notifier.showMessage({ content: 'Enregistrement réussi', color: 'success' }) 
                          
             } 
             
            else {
             console.log(error) 
-                this.$notifier.showMessage({ content: 'Enregistrement déjà échoué.', color: 'info' }) 
+                this.$notifier.showMessage({ content: 'Enregistrement échoué.', color: 'error' }) 
             }
            
-           
-    
-          
+              
           })
           this.loading = false
            this.visible = false

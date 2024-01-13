@@ -8,6 +8,37 @@ exports.checkChampVide = (tab) =>{
 }
 
 
+function getPrefix(zones, idZone, sexe){
+  // Recherche de la zone par ID
+  const zone = zones.find(zone => zone._id === idZone);
+
+  // Vérification si la zone a été trouvée
+  if (zone) {
+    // Concaténation du code de zone et du sexe 40263569
+    const prefix = zone.code+''+sexe;
+    return prefix;
+  } else {
+    // Gestion du cas où la zone n'est pas trouvée
+    console.error('Zone with ID '+ idZone+'not found.');
+    return null; // Ou une valeur par défaut de votre choix
+  }
+}
+
+function getCompteur(tableau, codePref){  
+ let n =0
+  for(const element in tableau)                     
+       if(parseInt(element[0].code.substring(3)) === parseInt(codePref))
+           n = n+1           
+    return n
+}
+
+exports.createCode = (membres, zones, idZone, sexe)=>{
+  const pref = getPrefix(zones, idZone, sexe)
+  const compteur = getCompteur(membres, pref)
+    return (pref + "-" + compteur) 
+}
+
+
 exports.getTwolastNumberOfYear = () => {
   const date = new  Date()
    return parseInt(date.getFullYear().toString().substring(2))
@@ -165,7 +196,7 @@ function checkCodeExist(tab, code){
  return found
  }
  
- exports.createCode = (tab) => {
+ exports.createCode1 = (tab) => {
   
    let rep = 0 
    let code = 0 
