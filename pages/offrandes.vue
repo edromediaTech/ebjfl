@@ -98,18 +98,21 @@
                     </div>
                     </a>
                 </div>
-                <div class="col-lg-3 wow zoomIn" data-wow-delay="0.1s">
+                <div class="col-lg-3 wow zoomIn mx-4" data-wow-delay="0.1s">
                     <a href="/dons" >
-                    <div  class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
-
+                    <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                            <img src="img/bnc1.jpeg" width="50">
+                        </div>
                         <div class="ps-4">
                             <h6 class="text-dark mb-0">0110021283 Gdes </h6><br>
                             <h6> O161000036 usd</h6>
                             <!-- <h1 class="text-white mb-0" data-toggle="counter-up">12345</h1> -->
                         </div>
                     </div>
-                </a>
+                    </a>
                 </div> 
+               
                 <div class="col-lg-3 wow zoomIn mx-4" data-wow-delay="0.1s">
                     <a href="/dons" >
                     <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">

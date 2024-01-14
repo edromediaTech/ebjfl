@@ -38,6 +38,7 @@
                   
                 <v-card-text>
                   <v-container>
+                    <p class="text-justify-center">  <b style="color: blue; font-size: 14px;" >Nous tenons à vous informer que notre site web ne gère pas les transactions financières directes. Ce formulaire vise simplement à recueillir des détails sur la transaction déjà effectuée, afin de compléter le processus et assurer une communication plus personnalisée.</b></p>
                     <v-row>
                           <v-col 
                         cols="12"
@@ -48,7 +49,7 @@
                           v-model="don.type"
                           :items="[{text:'Dime', value:Dime}, {text:'Offrande', value:Offrande},  {text:'offrande Moisson', value:Moisson},
                                   {text:'Don Particulier', value:Don}]"
-                          label="Veuillez choisir votre Type contribution*"                          
+                          label="Veuillez choisir votre Type de contribution*"                          
                         />
                       </v-col>
                       </v-row>
@@ -88,7 +89,6 @@
                       >
                       <v-text-field
                             v-model="don.pays"                       
-                           
                             label="Pays"
                             required
                           ></v-text-field>
@@ -131,7 +131,8 @@
                           required
                         ></v-text-field>
                       </v-col>
-                        <v-col v-if="don.type='Moisson'"
+                        <v-col
+                        v-if="don.type !== 'Offrande' && don.type !=='Don' && don.type !=='Dime'"
                         cols="12"
                         sm="6"
                         md="6"
@@ -181,8 +182,46 @@
                           label="Devise*"                          
                         />                   
                    
+                      </v-col>
+                      <v-col
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
+                      <v-text-field
+                            v-model="don.datetrans"                            
+                            label="Date Transaction"
+                            type="date"
+                            required
+                          ></v-text-field>                    
+                   
+                      </v-col>  
+                      <v-col
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
+                      <v-text-field
+                            v-model="don.preuve"                  
+                            label="Veuillez saisir une preuve de votre transaction"
+                            required
+                          ></v-text-field>                    
+                   
                       </v-col> 
-                    
+                      
+                      <v-col v-if="don.type !== 'Offrande' &&don.type !=='Moisson'&& don.type !=='Dime'"
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
+                      <v-text-field
+                            v-model="don.depensecible"                  
+                            label="Souhaitez-vous guider l'impact de votre contribution? Dans quel domaine vous préférez voir votre soutien investi."
+                            required
+                          ></v-text-field>                    
+                   
+                      </v-col> 
+                   
                     <div class="col-12">
                          <v-btn class="btn-primary text" @click="sendDon" >Envoyer</v-btn>   
                                    
