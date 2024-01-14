@@ -209,7 +209,7 @@
                    
                       </v-col> 
                       
-                      <v-col v-if="don.type !== 'Offrande' &&don.type !=='Moisson'&& don.type !=='Dime'"
+                      <v-col v-if="don.type !== 'Offrande' && don.type !=='Moisson' && don.type !=='Dime'"
                         cols="12"
                         sm="6"
                         md="6"
@@ -218,9 +218,8 @@
                             v-model="don.depensecible"                  
                             label="Souhaitez-vous guider l'impact de votre contribution? Dans quel domaine vous préférez voir votre soutien investi."
                             required
-                          ></v-text-field>                    
-                   
-                      </v-col> 
+                          ></v-text-field>                   
+                         </v-col> 
                    
                     <div class="col-12">
                          <v-btn class="btn-primary text" @click="sendDon" >Envoyer</v-btn>   
