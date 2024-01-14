@@ -72,7 +72,8 @@
                 <a href="#" class="dropdown-item"><b>Staff</b></a>               
               </div>
             </div>           -->
-            <a href="/videos" class="nav-item nav-link"><b>Vidéos</b></a>
+            <a href="/videos" class="nav-item nav-link"><b>Vidéos</b></a>           
+            <a href="/donations" class="nav-item nav-link"><b>Offrande</b></a>
             <a href="/contact" class="nav-item nav-link"><b>Contact</b></a>
             <!-- <a   href="/register" class="nav-item nav-link"><b>Enregistrer</b></a> -->
             <a   href="#" class="nav-item nav-link"><b><v-icon color="dark">mdi-login</v-icon></b></a>

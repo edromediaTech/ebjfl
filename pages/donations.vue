@@ -31,70 +31,11 @@
 </head>
 
 <body>
-   
-  
-    <!--====== SHOP PART START ======-->
-    
     <section id="shop-singel" class="pt-120 pb-120 gray-bg">
         <div class="container">
             <div class="shop-destails">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div class="shop-left pt-30">
-                            <div id="pills-tabContent" class="tab-content">
-                                <!-- <div id="pills-image-1" class="tab-pane fade show active" role="tabpanel" aria-labelledby="pills-image-1-tab">
-                                    <div class="shop-image">
-                                        <a href="img/offrande.jpg" class="shop-items"><img src="img/offrande.jpg" width="550" alt="Shop"></a>
-                                    </div>
-                                </div> -->
-                                <!-- <div id="pills-image-2" class="tab-pane fade" role="tabpanel" aria-labelledby="pills-image-2-tab">
-                                    <div class="shop-image">
-                                        <a href="img/gourde.jpg" class="shop-items"><img src="img/gourde.jpg" alt="Shop"></a>
-                                    </div>
-                                </div>
-                                <div id="pills-image-3" class="tab-pane fade" role="tabpanel" aria-labelledby="pills-image-3-tab">
-                                    <div class="shop-image">
-                                        <a href="img/zelle.jpg" class="shop-items"><img src="img/zelle.jpg" alt="Shop"></a>
-                                    </div>
-                                </div>
-                                <div id="pills-image-4" class="tab-pane fade" role="tabpanel" aria-labelledby="pills-image-4-tab">
-                                    <div class="shop-image">
-                                        <a href="images/shop-singel/ss-1.jpg" class="shop-items"><img src="images/shop-singel/ss-1.jpg" alt="Shop"></a>
-                                    </div>
-                                </div> -->
-                            </div>
-                            <ul id="pills-tab" class="nav nav-justified mt-30" role="tablist">
-                                <li class="nav-item">
-                                    <a id="pills-image-1-tab" class="active" data-toggle="pill" href="#pills-image-1" role="tab" aria-controls="pills-image-1" aria-selected="true">
-                                        <span class="shop-thum">
-                                            <img src="img/gourdes.jpg" width="150" alt="Thum">
-                                        </span>
-                                    </a>
-                                </li>
-                                <!-- <li class="nav-item">
-                                    <a id="pills-image-2-tab" data-toggle="pill" href="#pills-image-2" role="tab" aria-controls="pills-image-2" aria-selected="false">
-                                        <span class="shop-thum">
-                                            <img src="img/dollar.jpg"  width="150" alt="Thum">
-                                        </span>
-                                    </a>
-                                </li> -->
-                                <li class="nav-item">
-                                    <a id="pills-image-3-tab" data-toggle="pill" href="#pills-image-3" role="tab" aria-controls="pills-image-1" aria-selected="false">
-                                        <span class="shop-thum">
-                                            <img src="img/gourde.jpg"  width="150" alt="Thum">
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a id="pills-image-4-tab" data-toggle="pill" href="#pills-image-4" role="tab" aria-controls="pills-image-4" aria-selected="false">
-                                        <span class="shop-thum">
-                                            <img src="img/zelle.png" width="150" alt="Thum" >
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> <!-- shop left -->
-                    </div>
+                 
                     <div class="col-lg-6">
                         <div class="shop-right pt-30">
                             <span class="text-gray mt-4">Merci beaucoup pour votre désir de soutenir le travail de l'EBJFL</span><br>
@@ -102,245 +43,96 @@
                             <span> <b>"Chacun donne ce qu'il a décidé dans son cœur, sans tristesse ni contrainte, car Dieu aime celui qui 
                                 donne avec joie." - 2 Corinthiens 9:7</b> </span>
                             <br><br>
-                                <p>Votre contribution, quel que soit le montant, est une expression de votre amour pour Dieu et notre communauté. 
+                                <p>Votre contribution, est une expression de votre amour pour Dieu et notre communauté. 
                                     Donnez avec joie et faites partie de notre engagement collectif envers le bien.</p>
                                 <p>Que Dieu vous bénisse abondamment pour votre contribution et votre dévouement continu.</p>
-                            <div class="nice-number pt-15">
-                                <v-select
-                          v-model="don.type"
-                          :items="[{text:'Dime', value:Dime}, {text:'Offrande', value:Offrande},  {text:'offrande Moisson', value:Moisson},
-                                  {text:'Don Particulier', value:Don}]"
-                          label="Type de contribution*"
-                          
-                        />
-                            </div>
-                            <div class="add-btn pt-15">
-                                <button type="button" class="main-btn">Add to Cart</button>
-                            </div>
+                           
                         </div>
                     </div>
-                </div>  <!-- row -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="shop-reviews mt-60">
-                            <ul id="myTab" class="nav" role="tablist">
+                    <div class="col-lg-6">
+                        <ul id="pills-tab" class="nav nav-justified mt-30" role="tablist">
                                 <li class="nav-item">
-                                    <a id="description-tab" class="active" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+                                    <a id="pills-image-1-tab" class="active" data-toggle="pill" href="/dons" role="tab" aria-controls="pills-image-1" aria-selected="true">
+                                        <span class="shop-thum">
+                                            <img src="img/gourdes.jpg" width="100" alt="Thum">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
+                                    <a id="pills-image-2-tab" data-toggle="pill" href="/dons" role="tab" aria-controls="pills-image-2" aria-selected="false">
+                                        <span class="shop-thum">
+                                            <img src="img/gourde.jpg" width="100" alt="Thum">
+                                        </span>
+                                    </a>
                                 </li>
-                            </ul> <!-- nav -->
-                            <div id="myTabContent" class="tab-content">
-                                <div id="description" class="tab-pane fade show active" role="tabpanel" aria-labelledby="description-tab">
-                                    <div class="description-cont pt-40">
-                                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                                    </div>
-                                </div> <!-- row -->
-                                <div id="reviews" class="tab-pane fade" role="tabpanel" aria-labelledby="reviews-tab">
-                                    <div class="reviews-cont">
-                                        <ul>
-                                           <li>
-                                               <div class="singel-reviews">
-                                                    <div class="reviews-author">
-                                                        <div class="author-thum">
-                                                            <img src="images/review/r-1.jpg" alt="Reviews">
-                                                        </div>
-                                                        <div class="author-name">
-                                                            <h6>Bobby Aktar</h6>
-                                                            <span>April 03, 2019</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="reviews-description pt-20">
-                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which.</p>
-                                                        <div class="rating">
-                                                            <ul>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                            </ul>
-                                                            <span>/ 5 Star</span>
-                                                        </div>
-                                                    </div>
-                                                </div> <!-- singel reviews -->
-                                           </li>
-                                           <li>
-                                               <div class="singel-reviews">
-                                                    <div class="reviews-author">
-                                                        <div class="author-thum">
-                                                            <img src="images/review/r-2.jpg" alt="Reviews">
-                                                        </div>
-                                                        <div class="author-name">
-                                                            <h6>Humayun Ahmed</h6>
-                                                            <span>April 13, 2019</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="reviews-description pt-20">
-                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which.</p>
-                                                        <div class="rating">
-                                                            <ul>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                            </ul>
-                                                            <span>/ 5 Star</span>
-                                                        </div>
-                                                    </div>
-                                                </div> <!-- singel reviews -->
-                                           </li>
-                                        </ul>
-                                        <div class="reviews-form">
-                                            <form action="#">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-singel">
-                                                            <input type="text" placeholder="Fast name">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-singel">
-                                                            <input type="text" placeholder="Last Name">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="form-singel">
-                                                            <div class="rate-wrapper">
-                                                                <div class="rate-label">Your Rating:</div>
-                                                                <div class="rate">
-                                                                    <div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
-                                                                    <div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
-                                                                    <div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
-                                                                    <div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
-                                                                    <div class="rate-item"><i class="fa fa-star" aria-hidden="true"></i></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="form-singel">
-                                                            <textarea placeholder="Comment"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="form-singel">
-                                                            <button type="button" class="main-btn">Post Comment</button>
-                                                        </div>
-                                                    </div>
-                                                </div> <!-- row -->
-                                            </form>
-                                        </div> <!-- reviews form -->
-                                    </div>
-                                </div> <!-- row -->
-                            </div> <!-- tab-content -->
-                        </div> <!-- shop reviews -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- shop-destails -->
-            <div class="releted-item pt-110">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="title pb-10">
-                            <h3>Releted products</h3>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-                <div class="row justify-content-center">
-                    <div class="col-lg-3 col-md-6 col-sm-8">
-                        <div class="singel-publication mt-30">
-                            <div class="image">
-                                <img src="images/publication/p-1.jpg" alt="Publication">
-                                <div class="add-cart">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="cont">
-                                <div class="name">
-                                    <a href="shop-singel.html"><h6>Set for life </h6></a>
-                                    <span>$50.00</span>
-                                </div>
-                                <div class="button text-right">
-                                    <a href="#" class="main-btn">Buy Now</a>
-                                </div>
-                            </div>
-                        </div> <!-- singel publication -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-8">
-                        <div class="singel-publication mt-30">
-                            <div class="image">
-                                <img src="images/publication/p-2.jpg" alt="Publication">
-                                <div class="add-cart">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="cont">
-                                <div class="name">
-                                    <a href="shop-singel.html"><h6>Set for life </h6></a>
-                                    <span>$50.00</span>
-                                </div>
-                                <div class="button text-right">
-                                    <a href="#" class="main-btn">Buy Now</a>
-                                </div>
-                            </div>
-                        </div> <!-- singel publication -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-8">
-                        <div class="singel-publication mt-30">
-                            <div class="image">
-                                <img src="images/publication/p-3.jpg" alt="Publication">
-                                <div class="add-cart">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="cont">
-                                <div class="name">
-                                    <a href="shop-singel.html"><h6>Set for life </h6></a>
-                                    <span>$50.00</span>
-                                </div>
-                                <div class="button text-right">
-                                    <a href="#" class="main-btn">Buy Now</a>
-                                </div>
-                            </div>
-                        </div> <!-- singel publication -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-8">
-                        <div class="singel-publication mt-30">
-                            <div class="image">
-                                <img src="images/publication/p-4.jpg" alt="Publication">
-                                <div class="add-cart">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="cont">
-                                <div class="name">
-                                    <a href="shop-singel.html"><h6>Set for life </h6></a>
-                                    <span>$50.00</span>
-                                </div>
-                                <div class="button text-right">
-                                    <a href="#" class="main-btn">Buy Now</a>
-                                </div>
-                            </div>
-                        </div> <!-- singel publication -->
+                                <li class="nav-item">
+                                    <a id="pills-image-3-tab" data-toggle="pill" href="/dons" role="tab" aria-controls="pills-image-1" aria-selected="false">
+                                        <span class="shop-thum">
+                                            <img src="img/zelle.png" width="100" alt="Thum">
+                                        </span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
                     </div>
                 </div>  <!-- row -->
-            </div> <!-- releted item -->
-        </div> <!-- container -->
+            </div>
+            </div>                            
+                   
     </section>
+  <!-- Facts Start -->
+ 
+  <div class="container-fluid facts py-1 pt-lg-0 mb-4 mt-2">
+        <div class="container py-0 pt-lg-0">
+            <div class="row gx-0 mt-4">                
+                <div class="col-lg-3 wow zoomIn mx-4" data-wow-delay="0.1s">
+                    <a href="/dons" >
+                    <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                        <div class="bg-dark d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                            <v-icon class="text-white ">mdi-bank</v-icon>
+                        </div>
+                        <div class="ps-4">
+                            <h6 class="text-dark mb-0">Par Virement Bancaire</h6>
+                            <!-- <h1 class="text-white mb-0" data-toggle="counter-up">12345</h1> -->
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 wow zoomIn" data-wow-delay="0.1s">
+                    <a href="/dons" >
+                    <div  class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+
+                        <div class="ps-4">
+                            <h6 class="text-dark mb-0">0110021283 Gdes </h6><br>
+                            <h6> O161000036 usd</h6>
+                            <!-- <h1 class="text-white mb-0" data-toggle="counter-up">12345</h1> -->
+                        </div>
+                    </div>
+                </a>
+                </div> 
+                <div class="col-lg-3 wow zoomIn mx-4" data-wow-delay="0.1s">
+                    <a href="/dons" >
+                    <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                            <img src="img/zelle.png" width="50">
+                        </div>
+                        <div class="ps-4">
+                            <h6 class="text-dark mb-0">Par Zelle</h6>
+                            <!-- <h1 class="text-white mb-0" data-toggle="counter-up">12345</h1> -->
+                        </div>
+                    </div>
+                    </a>
+                </div>              
+                            
+                
+            </div>
+        </div>
+    </div>
+    <!-- Facts Start -->  
+  
+    <!--====== SHOP PART START ======-->
+    
+   
     
     <!--====== COURSES PART ENDS ======-->
    
@@ -443,6 +235,7 @@ export default {
             })
              
         },
+        
     async sendDon() {
       this.visible = true
       this.loading = true

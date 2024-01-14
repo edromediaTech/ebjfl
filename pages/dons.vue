@@ -1,5 +1,5 @@
 <template>
-    <div>       
+    <v-container>       
 
 <head>
     <meta charset="utf-8">
@@ -34,201 +34,165 @@
 <body>
    
 
-    <div class="container-xxl py-5">
-        <div class="container">
-         
-          <div class="row g-4">
-            </div>
-            
-          <div class="row g-4">
-            <div class="col-lg-4 col-md-6 wow fadeInUp align-items-center justify-content-center" data-wow-delay="0.3s">
-              <p class="text-justify">Nous souhaitons exprimer notre profonde gratitude à chacun d'entre vous qui fait partie de notre communauté 
-                aimante et engagée. Votre soutien continu a été une bénédiction pour notre église et a joué un rôle 
-                essentiel dans la réalisation de notre mission.</p>
-             <p class="text-justify">"Chacun donne ce qu'il a décidé dans son cœur, sans tristesse ni contrainte, car Dieu aime celui qui donne avec joie." - 2 Corinthiens 9:7</p>
-              <p>Votre contribution, quel que soit le montant, est une expression de votre amour pour Dieu et notre communauté. 
-                Donnez avec joie et faites partie de notre engagement collectif envers le bien.</p>
-            </div>
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              
-              <div class="d-flex align-items-center mb-3">
-                <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-dark" style="width: 50px; height: 50px;">
-                  <v-icon class="text-white ">mdi-bank</v-icon>
-                  <!-- class="fa fa-bank text-white" /> -->
-                </div>
-                <div class="ms-3">
-                  <h5 class="text-dark">
-                    Gourdes
-                  </h5>
-                  <h6 class="mb-0">
-                   0000000000 - BNC 
-                  </h6>
-                </div>
-              </div>
-              <div class="d-flex align-items-center mb-3">
-                <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-dark" style="width: 50px; height: 50px;">
-                  <v-icon class="text-white ">mdi-bank</v-icon>
-                  <!-- class="fa fa-bank text-white" /> -->
-                </div>
-                <div class="ms-3">
-                  <h5 class="text-dark">
-                    Dollar
-                  </h5>
-                  <h6 class="mb-0">
-                   0000000000 - BNC   
-                  </h6>
-                </div>
-              </div>
-              <div class="d-flex align-items-center mb-3">
-                <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-dark" style="width: 50px; height: 50px;">
-                  <v-icon class="text-white ">mdi-bank</v-icon>
-                  <!-- class="fa fa-bank text-white" /> -->
-                </div>
-                <div class="ms-3">
-                  <h5 class="text-dark">
-                   Zelle
-                  </h5>
-                  <h6 class="mb-0">
-                   0000000000 
-                  </h6>
-                </div>
-              </div>
-             
-             
-            </div>
-            
-            <div class="col-lg-5 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-              <form>
-                <div class="row g-3">
-                  <div class="col-md-12">
-                    <div class="form-floating">
+         <v-card>              
+                  
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                          <v-col 
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
                       <v-select
                           v-model="don.type"
                           :items="[{text:'Dime', value:Dime}, {text:'Offrande', value:Offrande},  {text:'offrande Moisson', value:Moisson},
                                   {text:'Don Particulier', value:Don}]"
-                          label="Type*"
-                          
+                          label="Veuillez choisir votre Type contribution*"                          
                         />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-floating">
+                      </v-col>
+                      </v-row>
+
+                     <span >
+                      <v-row v-if="don.type !==''">
+                        <v-col  
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
+                        <v-text-field
+                          v-model="don.nom"
+                          label="Nom*"
+                           :rules="[v => !!v || 'Champ obligatoire']"
+                           maxlength="25"
+                           required
+                        />
+                      </v-col>
+                        <v-col  v-if="don.type !==''"
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
+                        <v-text-field
+                          v-model="don.prenom"
+                          label="Prénom*"
+                           maxlength="55"
+                           :rules="[v => !!v || 'Champ obligatoire']"
+                           required
+                        />
+                      </v-col>
+                      <v-col
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
                       <v-text-field
-                            v-model="don.nom"                            
-                            prepend-icon="mdi-account"
-                            label="Nom"
+                            v-model="don.pays"                       
+                           
+                            label="Pays"
                             required
-                          ></v-text-field>                    
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-floating">
-                      <v-text-field
-                            v-model="don.prenom"                            
-                            prepend-icon="mdi-account"
-                            label="Prenom"
-                            required
-                          ></v-text-field>                    
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-floating">
-                      <v-select
-                      v-model="selectedCountry"
-                      :items="countries"
-                      label="Pays"
-                      prepend-icon="mdi-map-marker-alt"
-                      required
-                    ></v-select>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-floating">
+                          ></v-text-field>
+                      </v-col>
+                    
+                     <v-col
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
                       <v-text-field
                             v-model="don.ville"                            
-                            prepend-icon="mdi-account"
+                           
                             label="Ville"
                             required
-                          ></v-text-field>                    
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-floating">
+                          ></v-text-field>  
+                      </v-col>
+                      <v-col
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
                       <v-text-field
                             v-model="don.telephone"                            
-                            prepend-icon="mdi-account"
+                            
                             label="Tél"
                             required
-                          ></v-text-field>                    
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-floating">
+                          ></v-text-field> 
+                      </v-col>
+                        <v-col
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
                       <v-text-field
                           v-model="don.email"
-                           prepend-icon="mdi-account"
+                          
                           label="Entrer votre e-mail"
                           
                           required
                         ></v-text-field>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-floating">
+                      </v-col>
+                        <v-col v-if="don.type='Moisson'"
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
                       <v-select                            
                       v-model="district"
                       :items="districts"
                       :rules="[v => !!v || 'Choisir district']"
                       label="district"
                       required                       
-                      ></v-select>  
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-floating">
+                      ></v-select>
+                      </v-col>
+                        <v-col
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
                       <v-select
                           v-model="don.service"
                           :items="[{text:'Banque', value:Banque}, {text:'Zelle', value:Zelle},  {text:'CashApp', value:CashApp},
                                   {text:'Paypal', value:Paypal},  {text:'Moncash', value:MonCash},  {text:'Natcash', value:Natcash}]"
                           label="Service*"                          
                         />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-floating">
+                      </v-col> 
+                        <v-col
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
                       <v-text-field
                             v-model="don.montant"                            
-                            prepend-icon="mdi-account"
+                           
                             label="montant"
                             type="number"
                             required
                           ></v-text-field>                    
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-floating">
+                   
+                      </v-col> 
+                        <v-col
+                        cols="12"
+                        sm="6"
+                        md="6"
+                      >
                       <v-select
                           v-model="don.devise"
                           :items="[{text:'Gourdes', value:Gourdes}, {text:'Dollars', value:Dollars}]"
                           label="Devise*"                          
-                        />
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <v-btn class="btn-primary" @click="sendDon" >Envoyer</v-btn>
+                        />                   
                    
-                  </div>
-                </div>
-              </form>
-            </div>
-           
-          </div>
-        </div>
-      </div>
-      <!-- Contact End -->
-
-
-
+                      </v-col> 
+                    
+                    <div class="col-12">
+                         <v-btn class="btn-primary text" @click="sendDon" >Envoyer</v-btn>   
+                                   
+                    </div> 
+                  </v-row> 
+                  </span>                                          
+                    
+                  </v-container>
+                </v-card-text>
+</v-card>
   
 
    
@@ -251,7 +215,7 @@
 </body>
 
 
-    </div>
+</v-container>
 </template>
 <script>
 
@@ -299,7 +263,7 @@ export default {
     async sendDon() {
       this.visible = true
       this.loading = true
-      if (this.don.montant ==='' || this.don.nom  ===''|| this.don.email ==='') {
+      if (this.don.montant ==='' || this.don.nom  ===''|| this.don.prenom ==='' || this.don.service ==='') {
         this.$notifier.showMessage({ content: 'Veuillez saisir les champs obligatoires', color: 'error' })
         return false
       }
@@ -309,6 +273,7 @@ export default {
         if (res.status === 201) {
           this.dons.push(res.data)
           this.$notifier.showMessage({ content: 'Message envoyé avec succès', color: 'success' })
+          this.$router.push({ name: 'thanks'}) 
           this.don.montant =''
           this.don.nom  =''
           this.don.email =''
@@ -324,3 +289,13 @@ export default {
   }
 }
 </script>
+<style>
+.backimage {
+  background-image: url('/images/offrande.jpg'); /* Chemin vers votre image */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Ajustez la hauteur selon vos besoins */
+  /* Ajoutez d'autres styles au besoin */
+}
+</style>
