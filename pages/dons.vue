@@ -168,7 +168,7 @@
             :items="items"
              label="Service*"
             prepend-icon="mdi-bank-transfer"
-            return-object
+            
           >
             <template #selection="{ item }">
               <v-row >
@@ -446,8 +446,8 @@ export default {
         this.$notifier.showMessage({ content: 'Veuillez saisir les champs obligatoires', color: 'error' })
         return false
       }
-alert(this.don.preuve, this.don.service)
-console.log(this.don)
+alert(this.don.service)
+console.log(this.don.service)
      // this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.authToken
       await this.$axios.post('don/', this.don).then((res) => {
         
