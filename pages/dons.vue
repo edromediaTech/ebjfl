@@ -125,7 +125,7 @@
                       <v-text-field
                             v-model="don.telephone"                            
                             prepend-icon="mdi-phone"
-                            label="Tél"
+                            label="Téléphone"
                             required
                           ></v-text-field> 
                       </v-col>
