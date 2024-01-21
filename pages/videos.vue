@@ -4,7 +4,7 @@
       <v-row>
         <v-col v-for="(video, index) in videos" :key="index" cols="12" sm="6" md="4" lg="3">
           <v-card>
-            <v-card-title  style="color: blue; font-size: 14px;">{{ limiterTexte(video.snippet.title, 32) }}</v-card-title>
+            <v-card-title  style="color: blue; font-size: 14px;">{{ limiterTexte(video.snippet.title, 30) }}</v-card-title>
          
             <v-img :src="getThumbnailUrl(video.snippet.thumbnails.medium.url)" height="200"></v-img>
           

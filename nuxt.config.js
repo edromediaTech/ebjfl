@@ -1,6 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 // import { getRoutes } from './helpers/sitemap'
 export default {
+  target: 'static',
   // mode:'universal',
     
   env: {        
