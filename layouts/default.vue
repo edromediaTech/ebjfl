@@ -119,7 +119,7 @@
         <v-icon>mdi-menu</v-icon>
       </v-btn>
     </v-app-bar> -->
-    <v-main>
+    <v-main style="background-color: rgb(241, 241, 241);">
       <v-container>
         <Nuxt />
       </v-container>

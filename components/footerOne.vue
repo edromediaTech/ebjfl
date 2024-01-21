@@ -1,5 +1,5 @@
 <template>
-    <div>   
+    <div style=" background-color: rgb(241, 241, 241);">   
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="container">

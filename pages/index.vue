@@ -31,7 +31,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body style=" background-color: rgb(241, 241, 241);">
    
 <div>
         <div  class="container-fluid position-relative p-0"> 

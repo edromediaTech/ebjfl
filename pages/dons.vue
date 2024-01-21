@@ -1,5 +1,5 @@
 <template>
-    <v-container>       
+    <v-container >       
 
 <head>
     <meta charset="utf-8">
@@ -31,19 +31,24 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body  style=" background-color: rgb(241, 241, 241);">
+ 
    
-
-         <v-card>              
+<h3 style="color: rgb(106, 106, 247); background-color: rgb(241, 241, 241);" class="mt-4" ><center>Formulaire de Suivi des transactions</center></h3>
+<p class="text-justify-center px-4 mx-4 mt-0"  style="color: gray; background-color: rgb(241, 241, 241); font-size: 14px;">  Nous tenons à vous informer que notre site web 
+  ne gère pas les transactions financières directes. Ce formulaire vise simplement à recueillir des détails sur la 
+  transaction déjà effectuée, afin de compléter le processus et assurer une communication plus personnalisée.</p>
+               
+         <v-card class="px-4 mx-4 pb-4"> 
                   
                 <v-card-text>
                   <v-container>
-                    <p class="text-justify-center">  <b style="color: blue; font-size: 14px;" >Nous tenons à vous informer que notre site web ne gère pas les transactions financières directes. Ce formulaire vise simplement à recueillir des détails sur la transaction déjà effectuée, afin de compléter le processus et assurer une communication plus personnalisée.</b></p>
+                   
                     <v-row>
                           <v-col 
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
                       <v-select
                           v-model="don.type"
@@ -55,41 +60,47 @@
                       </v-row>
 
                      <span >
+                   
                       <v-row v-if="don.type !==''">
+                        <p class="mt-4" style="color: blue;">Tous les champs avec un astérisque (*) sont obligatoires</p>
                         <v-col  
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
                         <v-text-field
                           v-model="don.nom"
                           label="Nom*"
                            :rules="[v => !!v || 'Champ obligatoire']"
                            maxlength="25"
+                           prepend-icon="mdi-account"
                            required
                         />
                       </v-col>
+                      
                         <v-col  v-if="don.type !==''"
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
                         <v-text-field
                           v-model="don.prenom"
                           label="Prénom*"
                            maxlength="55"
                            :rules="[v => !!v || 'Champ obligatoire']"
+                           prepend-icon="mdi-account-outline"
                            required
                         />
                       </v-col>
                       <v-col
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
                       <v-text-field
                             v-model="don.pays"                       
-                            label="Pays"
+                            label="Pays*"
+                            prepend-icon="mdi-map-marker"
                             required
                           ></v-text-field>
                       </v-col>
@@ -97,23 +108,23 @@
                      <v-col
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
                       <v-text-field
-                            v-model="don.ville"                            
-                           
-                            label="Ville"
+                            v-model="don.ville"                          
+                            prepend-icon="mdi-city"
+                            label="Ville*"
                             required
                           ></v-text-field>  
                       </v-col>
                       <v-col
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
                       <v-text-field
                             v-model="don.telephone"                            
-                            
+                            prepend-icon="mdi-phone"
                             label="Tél"
                             required
                           ></v-text-field> 
@@ -121,12 +132,12 @@
                         <v-col
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
                       <v-text-field
                           v-model="don.email"
-                          
-                          label="Entrer votre e-mail"
+                          prepend-icon="mdi-mail"
+                          label="Email"
                           
                           required
                         ></v-text-field>
@@ -135,38 +146,59 @@
                         v-if="don.type !== 'Offrande' && don.type !=='Don' && don.type !=='Dime'"
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
                       <v-select                            
                       v-model="district"
                       :items="districts"
                       :rules="[v => !!v || 'Choisir district']"
                       label="district"
+                      prepend-icon="mdi-account-multiple"
                       required                       
                       ></v-select>
                       </v-col>
                         <v-col
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
-                      <v-select
-                          v-model="don.service"
-                          :items="[{text:'Banque', value:Banque}, {text:'Zelle', value:Zelle},  {text:'CashApp', value:CashApp},
-                                  {text:'Paypal', value:Paypal},  {text:'Moncash', value:MonCash},  {text:'Natcash', value:Natcash}]"
-                          label="Service*"                          
-                        />
-                      </v-col> 
+                    
+          <v-select
+            v-model="don.service"
+            :items="items"
+             label="Service*"
+            prepend-icon="mdi-bank-transfer"
+            return-object
+          >
+            <template #selection="{ item }">
+              <v-row >
+                <v-col class="pr-2">
+                  {{ item.text }}</v-col>
+                <v-col> <v-img :src="item.logo" max-width="50" max-height="50"></v-img>               
+                </v-col>            
+              </v-row>
+            </template>
+           
+            <template #item="{ item }">
+              <v-row >
+                <v-col class="pr-2">
+                  {{ item.text }}</v-col>
+                  <v-col><v-img :src="item.logo" max-width="50" max-height="50"></v-img>                
+                </v-col>               
+              </v-row>
+            </template>
+          </v-select>
+                      </v-col>
                         <v-col
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
                       <v-text-field
-                            v-model="don.montant"                            
-                           
-                            label="montant"
+                            v-model="don.montant"                           
+                            label="montant*"
                             type="number"
+                            prepend-icon="mdi-cash-multiple"
                             required
                           ></v-text-field>                    
                    
@@ -174,24 +206,27 @@
                         <v-col
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
                       <v-select
                           v-model="don.devise"
-                          :items="[{text:'Gourdes', value:Gourdes}, {text:'Dollars', value:Dollars}]"
-                          label="Devise*"                          
+                          :items="[{text:'Gourde', value:Gourde}, {text:'Dollar', value:Dollar}]"
+                          label="Devise" 
+                          prepend-icon="mdi-currency-usd"
+                          required                         
                         />                   
                    
                       </v-col>
                       <v-col
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
                       <v-text-field
                             v-model="don.datetrans"                            
                             label="Date Transaction"
                             type="date"
+                            prepend-icon="mdi-calendar"
                             required
                           ></v-text-field>                    
                    
@@ -199,31 +234,85 @@
                       <v-col
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
                       <v-text-field
-                            v-model="don.preuve"                  
-                            label="Veuillez saisir une preuve de votre transaction"
+                            v-model="don.idtrans"                  
+                            label="Numéro de la transaction"
+                            prepend-icon="mdi-identifier"
                             required
                           ></v-text-field>                    
                    
+                      </v-col> 
+                      <v-col
+                        cols="12"
+                        sm="6"
+                        md="4"
+                      >
+                     
+                          <v-file-input
+                          id="file"
+                          ref="file"
+                          v-model="imageUrl"
+                          type="file"
+                          label="Upload Preuve de transaction"
+                          accept="image/*"
+                          title="Upload Image"
+                          
+                          prepend-icon="mdi-attachment"
+                          required
+                            @change="handleFileUpload"     
+                        ></v-file-input>
+                        <v-progress-linear
+                        v-if="imageUrl !==''"
+                            v-model="knowledge"
+                            height="20"
+                          >                          
+                            <strong>{{ Math.ceil(knowledge) }}%</strong>
+                        </v-progress-linear>
+                        <v-btn   
+                                v-if="imageUrl !==''"     
+                                :loading="loading"          
+                                color="success"
+                                size="medium"          
+                                variant="elevated"
+                                @click="submitFile"
+                              >
+                                Upload
+                              </v-btn>
+                        <!-- <v-file-input                              
+                  id="file"
+                  ref="file"
+                  v-model="file"
+                  name=files
+                  type="file"
+                  hide-input
+                  label="Preuve de Transaction"
+                  accept=""
+                  multiple                 
+                  prepend-icon="mdi-attachment"
+                  required
+                  @change="handleFileUpload"
+                />    -->
+                    
                       </v-col> 
                       
                       <v-col v-if="don.type !== 'Offrande' && don.type !=='Moisson' && don.type !=='Dime'"
                         cols="12"
                         sm="6"
-                        md="6"
+                        md="4"
                       >
                       <v-text-field
                             v-model="don.depensecible"                  
-                            label="Souhaitez-vous guider l'impact de votre contribution? Dans quel domaine vous préférez voir votre soutien investi."
+                            label="Dans quel domaine vous préférez voir votre soutien investi ?"
+                            prepend-icon="mdi-heart"
                             required
                           ></v-text-field>                   
-                         </v-col> 
-                   
+                         </v-col>
+             
                     <div class="col-12">
                          <v-btn class="btn-primary text" @click="sendDon" >Envoyer</v-btn>   
-                                   
+                                  
                     </div> 
                   </v-row> 
                   </span>                                          
@@ -232,8 +321,6 @@
                 </v-card-text>
 </v-card>
   
-
-   
   
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -258,15 +345,28 @@
 <script>
 
 // import {countries} from 'countries-list';
+ // import capture from '~/components/capture';
 
 export default {
-
+// components :{capture},
   data: () => ({
     visible: false,
     loading :false,
+    knowledge:0,
+    imageUrl:'',
     selectedCountry: null,
+    pays:[],
+    items: [
+        { text: 'BNC', value: 'BNC', logo: '/img/bnc1.jpeg' },
+        { text:'Zelle', value: 'Zelle', logo: '/img/zelle.png' },
+        { text:'PayPal', value: 'PayPal', logo: '/img/paypal.jpg' },
+        { text:'Cash App', value: 'CashApp', logo: '/img/cashapp.png' },
+        { text:'MonCash', value: 'MonCash', logo: '/img/moncash.png' },
+        { text:'NatCash', value: 'NatCash', logo: '/img/natcash.png' },
+        // Ajoute lòt antrepriz si nesesè
+      ],
     don: { nom:'', prenom:'', email: '', pays:'', ville: '', service:'', depensecible:'', district:'', preuve:'', 
-          datetrans:'',  montant:'', devise:'', telephone:'', type:'' },
+          datetrans:'',  montant:'', devise:'', telephone:'', type:'', idtrans:'' },
     // countries: Object.values(countries),
    districts:[],
     dons: [],
@@ -298,6 +398,47 @@ export default {
             })
              
         },
+
+    async getPays(){ 
+        this.visible = true                
+            // this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')
+                 await this.$axios.get('https://restcountries.com/v3.1/all').then(response => { 
+                 this.pays = response                
+                          
+               this.visible = false              
+            })
+             
+        },
+        handleFileUpload (e) {     
+        // this.file = e.target.valuefile        
+     //  console.log(e)
+        
+      },
+        async submitFile () { 
+     this.visible = true      
+        const formData = new FormData()      
+        formData.append('imgfile', this.imageUrl)
+      
+        this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')
+        
+        await this.$axios.post('don/upload/', formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+          onUploadProgress: function (progressEvent) {
+            this.knowledge = parseInt(Math.round((progressEvent.loaded / progressEvent.total) * 100))
+          }.bind(this),
+        },
+        ).then(res => { 
+          
+           this.don.preuve = res.data.path 
+           // this.$emit('onDevoirUpload', this.path); 
+            
+           this.$notifier.showMessage({ content: 'Fichier upload avec succès!' , color: 'success'}); 
+           this.dialog = false })
+          .catch(err => console.log(err))  
+          
+        this.visible = false
+        this.loading = false
+       },
     async sendDon() {
       this.visible = true
       this.loading = true
@@ -305,9 +446,11 @@ export default {
         this.$notifier.showMessage({ content: 'Veuillez saisir les champs obligatoires', color: 'error' })
         return false
       }
-
-      this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.authToken
+alert(this.don.preuve, this.don.service)
+console.log(this.don)
+     // this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.authToken
       await this.$axios.post('don/', this.don).then((res) => {
+        
         if (res.status === 201) {
           this.dons.push(res.data)
           this.$notifier.showMessage({ content: 'Message envoyé avec succès', color: 'success' })

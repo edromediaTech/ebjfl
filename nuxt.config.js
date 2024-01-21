@@ -108,8 +108,8 @@ export default {
  
   axios: {
     // univ_id upga : 63fa995f10a11be85bee30d5
-       baseUrl: 'https://backend.ebjfl.org/api/',
-      //  baseUrl : 'http://192.168.0.104:3000/api/',
+     //  baseUrl: 'https://backend.ebjfl.org/api/',
+        baseUrl : 'http://192.168.0.104:3000/api/',
     //  baseUrl : 'http://172.20.10.2:3000/api/',
     //  baseUrl : 'http://localhost:3001/api/',
    //   credentials: true,

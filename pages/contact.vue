@@ -30,7 +30,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <section id="contact">
-<body>
+<body style=" background-color: rgb(241, 241, 241);">
    
     <!-- Contact Start -->
       <div class="container-xxl py-5">

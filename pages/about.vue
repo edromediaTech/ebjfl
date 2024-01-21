@@ -33,7 +33,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body style=" background-color: rgb(241, 241, 241);">
    
     
    

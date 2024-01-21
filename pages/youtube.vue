@@ -1,47 +1,41 @@
-<template>  
-    <v-container>
-      <v-row>
-        <v-col>
-          <v-text-field v-model="searchQuery" label="Recherche" @input="searchVideos" />
-        </v-col>
-      </v-row>
-      <youtube-video :videos="filteredVideos" />
-    </v-container>
-  
+<template>
+  <v-container>
+    <v-select
+      v-model="selectedCountry"
+      :items="sortedCountries"
+      label="Choisissez un pays"
+    ></v-select>
+  </v-container>
 </template>
 
 <script>
 export default {
-  async asyncData({ $axios, env }) {
-    // Récupérer les vidéos de votre chaîne YouTube
-    // const channelId = 'UCHKMPdWk5nuFPC_Gr0ACXhw'
-    const response = await $axios.get(
-      `https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UCHKMPdWk5nuFPC_Gr0ACXhw&maxResults=25&key=AIzaSyCGxMLEIeiA4fbJ03ZPmHfQ1q84zHpEhA8`
-     // `https://www.googleapis.com/youtube/v3/search?key=${env.youtubeApiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=10`
-    );
-
-    return {
-      videos: response.data.items,
-    };
-  },
   data() {
     return {
-      searchQuery: '',
-      videos: [], // Toutes les vidéos
+      countries: [],
+      selectedCountry: null,
     };
   },
   computed: {
-    filteredVideos() {
-      // Filtrer les vidéos en fonction de la recherche
-      return this.videos.filter(video =>
-        video.snippet.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-      );
+    sortedCountries() {
+      return this.countries.slice().sort((a, b) => a.text.localeCompare(b.text));
     },
   },
+  mounted() {
+    this.fetchCountries();
+  },
   methods: {
-    searchVideos() {
-      // Mettez à jour les vidéos filtrées lors de la recherche
-      this.$forceUpdate();
+    async fetchCountries() {
+      try {
+        const response = await this.$axios.get("https://restcountries.com/v3.1/all");
+        const data = response.data;
+        this.countries = data.map((country) => ({
+          text: country.name.common,
+          value: country.name.common,
+        }));
+      } catch (error) {
+        console.error("Erreur lors de la récupération des pays :", error);
+      }
     },
   },
 };

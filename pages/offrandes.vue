@@ -30,7 +30,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body style=" background-color: rgb(241, 241, 241);">
     <section id="shop-singel" class="pt-120 pb-120 gray-bg">
         <div class="container">
             <div class="shop-destails">
@@ -87,7 +87,7 @@
             <div class="row gx-0 mt-4">                
                 <div class="col-lg-3 wow zoomIn mx-4" data-wow-delay="0.1s">
                     <a href="/dons" >
-                    <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                    <div class="bg-white shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
                         <div class="bg-dark d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
                             <v-icon class="text-white ">mdi-bank</v-icon>
                         </div>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-lg-3 wow zoomIn mx-4" data-wow-delay="0.1s">
                     <a href="/dons" >
-                    <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                    <div class="bg-white shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
                         <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
                             <img src="img/bnc1.jpeg" width="50">
                         </div>
@@ -115,7 +115,7 @@
                
                 <div class="col-lg-3 wow zoomIn mx-4" data-wow-delay="0.1s">
                     <a href="/dons" >
-                    <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                    <div class="bg-white shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
                         <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
                             <img src="img/zelle.png" width="50">
                         </div>
