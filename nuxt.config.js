@@ -149,13 +149,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    extend(config, { isDev, isClient }) {
-      config.module.rules.push({
-        test: /\.json$/,
-        loader: 'json-loader',
-        type: 'javascript/auto',
-      });
-      // Ajoutez des chargeurs ou configurations webpack ici
-    }
+    
   }
 }
