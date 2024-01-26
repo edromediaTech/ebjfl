@@ -27,35 +27,59 @@
            
             <v-row>
               <v-col
-                cols="12"
-                md="12"
-              >
-                 
-                <v-file-input
-           
-                  id="file"
-                   ref="file"
-                  v-model="imageUrl"
-                  name=fichier
-                  type="file"
-                  label="Upload fichier"
-                  accept=""
-                  hide-input
-                  prepend-icon="mdi-attachment"
-                  required
-                    @change="handleFileUpload"
-                />
-              
-              </v-col>
-             
-              <v-progress-linear
-                v-model="knowledge"
-                height="25"
-              >
-                <strong>{{ Math.ceil(knowledge) }}%</strong>
-              </v-progress-linear>
-            </v-row>
-          
+                        cols="12"
+                        sm="6"
+                        md="4"
+                      >
+                      <v-text-field
+                            v-model="don.idtrans"                  
+                            label="Numéro de la transaction"
+                            prepend-icon="mdi-identifier"
+                            required
+                          ></v-text-field>                    
+                   
+                      </v-col> 
+                      <v-col
+                        cols="12"
+                        sm="6"
+                        md="4"
+                      >
+                     
+                          <v-file-input
+                          id="file"
+                          ref="file"
+                          v-model="imageUrl"
+                          type="file"
+                          label="Upload Preuve de transaction"
+                          accept="image/*"
+                          title="Upload Image"
+                          
+                          prepend-icon="mdi-attachment"
+                          required
+                            @change="handleFileUpload"     
+                        ></v-file-input>
+                        <v-progress-linear
+                        v-if="imageUrl !==''"
+                            v-model="knowledge"
+                            height="20"
+                          >                          
+                            <strong>{{ Math.ceil(knowledge) }}%</strong>
+                        </v-progress-linear>
+                        <v-btn   
+                                v-if="imageUrl !==''"     
+                                :loading="loading"          
+                                color="success"
+                                size="medium"          
+                                variant="elevated"
+                                @click="submitFile"
+                              >
+                                Upload
+                              </v-btn>
+                       
+                    
+                      </v-col> 
+                      
+              </v-row>
           </v-container>
         </v-card-text>
         <v-card-actions>
@@ -106,39 +130,16 @@
     }),
 
     methods: {
-      
-      handleFileUpload (file) {
-         this.file = file  
-              
-       // this.fichier = this.fichier
-       // this.nomFichier = file.file.name
-       
-        // this.$refs.file.files[0]
+      handleFileUpload (e) {     
+        // this.file = e.target.valuefile        
+     //  console.log(e)
+        
       },
-      async submitFile () {
-        /*
-    Initialize the form data
-  */
-        const formData = new FormData()
-
-        /*
-    Add the form data we need to submit
-  */
-        // if (this.path_src.size > 100 * 1024 * 1024) {
-        //   this.$store.dispatch('set_snackbar', { showing: true, text: 'La taille du Fichier depasse 100 mb:  ' + (this.path_src.size / (1024 * 1024)).toFixed(2) + 'mb' })
-        //   return false
-        // }
-        // if (!checkTypeFile(this.path_src, ['mp4', 'mp3', 'jpg'])) {
-        //   this.$store.dispatch('set_snackbar', { showing: true, text: ' Le type du fichier est incorrect (mp4, mp3, jpg) ' })
-        //   return false
-        // }
-        formData.append('imgfile', this.file)
-
-      //  formData.append('cours', "cours")
-        // formData.append('classematiere_salle', this.matiere)
-        /*
-    Make the request to the POST /single-file URL
-  */
+        async submitFile () { 
+     this.visible = true      
+        const formData = new FormData()      
+        formData.append('imgfile', this.imageUrl)
+      
         this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')
         
         await this.$axios.post('don/upload/', formData, {
@@ -148,14 +149,18 @@
           }.bind(this),
         },
         ).then(res => { 
-           this.path = res; 
-           this.$emit('onPreuveUpload', this.path); 
+          
+           this.don.preuve = res.data.path 
+           // this.$emit('onDevoirUpload', this.path); 
             
-           this.$notifier.showMessage({ content:  'Fichier upload avec succès!' , color: 'success'}); 
+           this.$notifier.showMessage({ content: 'Fichier upload avec succès!' , color: 'success'}); 
            this.dialog = false })
-          .catch(err => console.log(err))          
+          .catch(err => console.log(err))  
+          
+        this.visible = false
+        this.loading = false
        },
-    },
-
-  }
+      
+        }
+      }
 </script>

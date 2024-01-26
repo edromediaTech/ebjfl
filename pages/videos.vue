@@ -10,6 +10,8 @@
           
             <v-card-actions>
               <v-btn :href="getVideoUrl(video.id.videoId)" target="blank" color="primary" text>Regarde</v-btn>
+              <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe> -->
+
               <!-- <v-btn :href="getVideoUrl(video.id.videoId)" target="blank" color="primary" text>Regarde</v-btn> -->
             </v-card-actions>
           </v-card>

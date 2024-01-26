@@ -382,7 +382,7 @@
         async getOffrandes(){ 
           this.visible = true                
               // this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')
-                   await this.$axios.get('don/all/').then(response => { 
+                   await this.$axios.get('don/').then(response => { 
                    this.offrandes = response.data                 
                             
                  this.visible = false              

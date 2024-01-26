@@ -50,7 +50,7 @@
                                 <div class="link-animated d-flex flex-column justify-content-start">
                                    <a class="text-light mb-2" href="/"><i class="bi bi-arrow-right text-primary me-2"></i>Accueil</a>
                                     <a class="text-light mb-2" href="/about"><i class="bi bi-arrow-right text-primary me-2"></i>A propos de Nous</a>
-                                    <a class="text-light mb-2" href="/ videos"><i class="bi bi-arrow-right text-primary me-2"></i>Sermons</a>
+                                    <a class="text-light mb-2" href="/videos"><i class="bi bi-arrow-right text-primary me-2"></i>Sermons</a>
                                     <!-- <a class="text-light mb-2" href="/programmation"><i class="bi bi-arrow-right text-primary me-2"></i>Programmation</a> -->
                                     <a class="text-light" href="/contact"><i class="bi bi-arrow-right text-primary me-2"></i>Contact</a>
                                 </div>

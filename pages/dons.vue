@@ -52,7 +52,7 @@
                       >
                       <v-select
                           v-model="don.type"
-                          :items="[{text:'Dime', value:Dime}, {text:'Offrande', value:Offrande},  {text:'offrande Moisson', value:Moisson},
+                          :items="[{text:'Dime', value:Dime}, {text:'Offrande', value:Offrande},  {text:'Offrande Moisson', value:Moisson},
                                   {text:'Don Particulier', value:Don}]"
                           label="Veuillez choisir votre Type de contribution*"                          
                         />
@@ -143,7 +143,7 @@
                         ></v-text-field>
                       </v-col>
                         <v-col
-                        v-if="don.type !== 'Offrande' && don.type !=='Don' && don.type !=='Dime'"
+                        v-if="don.type === 'Offrande Moisson'"
                         cols="12"
                         sm="6"
                         md="4"
@@ -220,6 +220,36 @@
                       <v-col
                         cols="12"
                         sm="6"
+                        md="6"
+                      >  
+                      <h6>Upload Preuve de transaction</h6>                 
+                        <form @submit.prevent="uploadImage">
+                          <input
+                           ref="fileInput" 
+                           type="file" 
+                           accept="image/*"   
+                            label="Upload Preuve de transaction"/>
+                            <v-progress-circular
+                              v-show="visible"
+                              :size="10"
+                              :width="3"
+                              color="info"
+                              indeterminate
+                              class="ma-auto"
+                            />
+                          <!-- <v-progress-linear
+                          v-show="visible"                     
+                            v-model="knowledge"
+                            height="20"
+                          >                          
+                            <strong>{{ Math.ceil(knowledge) }}%</strong>
+                         </v-progress-linear> -->
+                          <v-btn type="submit" color="success" small><v-icon>mdi-upload </v-icon>Upload</v-btn>
+                        </form>
+                      </v-col>
+                      <v-col
+                        cols="12"
+                        sm="6"
                         md="4"
                       >
                       <v-text-field
@@ -231,73 +261,8 @@
                           ></v-text-field>                    
                    
                       </v-col>  
-                      <v-col
-                        cols="12"
-                        sm="6"
-                        md="4"
-                      >
-                      <v-text-field
-                            v-model="don.idtrans"                  
-                            label="Numéro de la transaction"
-                            prepend-icon="mdi-identifier"
-                            required
-                          ></v-text-field>                    
-                   
-                      </v-col> 
-                      <v-col
-                        cols="12"
-                        sm="6"
-                        md="4"
-                      >
                      
-                          <v-file-input
-                          id="file"
-                          ref="file"
-                          v-model="imageUrl"
-                          type="file"
-                          label="Upload Preuve de transaction"
-                          accept="image/*"
-                          title="Upload Image"
-                          
-                          prepend-icon="mdi-attachment"
-                          required
-                            @change="handleFileUpload"     
-                        ></v-file-input>
-                        <v-progress-linear
-                        v-if="imageUrl !==''"
-                            v-model="knowledge"
-                            height="20"
-                          >                          
-                            <strong>{{ Math.ceil(knowledge) }}%</strong>
-                        </v-progress-linear>
-                        <v-btn   
-                                v-if="imageUrl !==''"     
-                                :loading="loading"          
-                                color="success"
-                                size="medium"          
-                                variant="elevated"
-                                @click="submitFile"
-                              >
-                                Upload
-                              </v-btn>
-                        <!-- <v-file-input                              
-                  id="file"
-                  ref="file"
-                  v-model="file"
-                  name=files
-                  type="file"
-                  hide-input
-                  label="Preuve de Transaction"
-                  accept=""
-                  multiple                 
-                  prepend-icon="mdi-attachment"
-                  required
-                  @change="handleFileUpload"
-                />    -->
-                    
-                      </v-col> 
-                      
-                      <v-col v-if="don.type !== 'Offrande' && don.type !=='Moisson' && don.type !=='Dime'"
+                      <v-col v-if="don.type ==='Don Particulier'"
                         cols="12"
                         sm="6"
                         md="4"
@@ -309,9 +274,57 @@
                             required
                           ></v-text-field>                   
                          </v-col>
+                         <v-col
+                        cols="12"
+                        sm="6"
+                        md="4"
+                      >
+                      <v-text-field
+                            v-model="don.idtrans"                  
+                            label="Numéro de la transaction"
+                            prepend-icon="mdi-identifier"
+                            required
+                          ></v-text-field>                    
+                   
+                      </v-col>
+                     
+             
+                      
+                     
+                          <!-- <v-file-input
+                           ref="fileInput" 
+                           v-model="image" 
+                           type="file"
+                           accept="image/*"
+                          class="mr-4"                       
+                          label="Upload Preuve de transaction"                         
+                          title="Upload Image"
+                          
+                          prepend-icon="mdi-attachment"
+                          required
+                            @change="handleFileUpload"     
+                        ></v-file-input>
+                        <v-progress-linear
+                        v-if="image !==''"
+                            v-model="knowledge"
+                            height="20"
+                          >                          
+                            <strong>{{ Math.ceil(knowledge) }}%</strong>
+                        </v-progress-linear>
+                        <v-btn   
+                                v-if="image !==''"     
+                                :loading="loading"          
+                                color="success"
+                                size="medium"          
+                                variant="elevated"
+                                @click="uploadImage"
+                              >
+                                Upload
+                              </v-btn> 
+                                           -->                     
              
                     <div class="col-12">
-                         <v-btn class="btn-primary text" @click="sendDon" >Envoyer</v-btn>   
+                         <v-btn type="submit" color="primary" @click="sendDon" >Envoyer</v-btn>   
                                   
                     </div> 
                   </v-row> 
@@ -319,9 +332,8 @@
                     
                   </v-container>
                 </v-card-text>
-</v-card>
-  
-  
+              </v-card>
+             
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 
@@ -345,15 +357,17 @@
 <script>
 
 // import {countries} from 'countries-list';
- // import capture from '~/components/capture';
+// import capture from '~/components/capture';
 
 export default {
 // components :{capture},
   data: () => ({
+    dialogP : false,
+    dialog : false,
     visible: false,
     loading :false,
     knowledge:0,
-    imageUrl:'',
+    image:'',
     selectedCountry: null,
     pays:[],
     items: [
@@ -365,8 +379,8 @@ export default {
         { text:'NatCash', value: 'NatCash', logo: '/img/natcash.png' },
         // Ajoute lòt antrepriz si nesesè
       ],
-    don: { nom:'', prenom:'', email: '', pays:'', ville: '', service:'', depensecible:'', district:'', preuve:'', 
-          datetrans:'',  montant:'', devise:'', telephone:'', type:'', idtrans:'' },
+    don: { nom:'', prenom:'', email: '', pays:'', ville: '', service:'', depensecible:'', district:'', 
+          datetrans:'',  montant:'', devise:'', telephone:'', type:'', idtrans:'', preuve:'' },
     // countries: Object.values(countries),
    districts:[],
     dons: [],
@@ -390,15 +404,57 @@ export default {
                  const d = response.data.districts 
                  this.dataDistricts = d
                   for(let i =0; i<d.length; i++){
-                 this.districts.push({text:d[i].nom, value:d[i]._id}) 
-                                           
+                 this.districts.push({text:d[i].nom, value:d[i]._id})                          
                 }  
                           
                this.visible = false              
-            })
-             
+            })            
         },
 
+        checkImageSize(file) {
+    const maxSizeInBytes = 1024 * 1024; // Taille maximale en octets (1 Mo dans cet exemple)
+
+    if (file.size > maxSizeInBytes) {
+      alert("L'image est trop grande. Veuillez choisir une image plus petite.");
+      // Vous pouvez également réinitialiser l'élément d'entrée de fichier pour permettre à l'utilisateur de choisir à nouveau
+      // this.$refs.fileInput.value = '';
+    } else {
+      alert("L'image est de taille acceptable.");
+      // Vous pouvez téléverser l'image ou effectuer d'autres opérations ici
+    }
+  },
+
+    async uploadImage() {
+      this.visible = true   
+      const fileInput = this.$refs.fileInput;
+      const file = fileInput.files[0];
+
+      if (file) {
+         const formData = new FormData();
+         formData.append('image', file);
+
+      try {
+        // if(this.checkImageSize(file.size)){
+        //   this.$notifier.showMessage({ content: 'image est trop grande. Veuillez choisir une image plus petite.' , color: 'success'});
+        // }
+         const data = await this.$axios.post('preuvedon/', formData, {
+            headers: {  'Content-Type': 'multipart/form-data' },
+                        
+          });
+          
+           this.$notifier.showMessage({ content: 'Fichier upload avec succès!' , color: 'success'});
+                this.don.preuve = data.data._id
+                
+        } catch (error) {
+          console.error(error);
+          this.$notifier.showMessage({ content: 'Upload echoué!' , color: 'error'});
+        }
+      } else {
+        this.$notifier.showMessage({ content: 'S\'il vous plait selectionnez une image!' , color: 'info'});
+      }
+      this.visible = false   
+    },
+          
     async getPays(){ 
         this.visible = true                
             // this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')
@@ -409,7 +465,15 @@ export default {
             })
              
         },
-        handleFileUpload (e) {     
+
+      preuve (){
+        this.dialogP = true
+      },
+      capture (){
+        this.dialog = true
+      },
+
+      handleFileUpload (e) {     
         // this.file = e.target.valuefile        
      //  console.log(e)
         
@@ -417,11 +481,11 @@ export default {
         async submitFile () { 
      this.visible = true      
         const formData = new FormData()      
-        formData.append('imgfile', this.imageUrl)
+        formData.append('imgfile', this.image)
       
         this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')
         
-        await this.$axios.post('don/upload/', formData, {
+        await this.$axios.post('preuvedon/preuvedons/', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
           onUploadProgress: function (progressEvent) {
             this.knowledge = parseInt(Math.round((progressEvent.loaded / progressEvent.total) * 100))
@@ -429,7 +493,7 @@ export default {
         },
         ).then(res => { 
           
-           this.don.preuve = res.data.path 
+           // this.don.preuve = res.data.path 
            // this.$emit('onDevoirUpload', this.path); 
             
            this.$notifier.showMessage({ content: 'Fichier upload avec succès!' , color: 'success'}); 
@@ -439,15 +503,18 @@ export default {
         this.visible = false
         this.loading = false
        },
+      
+        
+       
     async sendDon() {
       this.visible = true
       this.loading = true
-      if (this.don.montant ==='' || this.don.nom  ===''|| this.don.prenom ==='' || this.don.service ==='') {
+      if (this.don.montant ==='' || this.don.nom  ===''|| this.don.prenom ==='' || this.don.service ===''  || this.don.pays ===''  || this.don.ville ==='') {
         this.$notifier.showMessage({ content: 'Veuillez saisir les champs obligatoires', color: 'error' })
         return false
       }
-alert(this.don.service)
-console.log(this.don.service)
+
+
      // this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.authToken
       await this.$axios.post('don/', this.don).then((res) => {
         

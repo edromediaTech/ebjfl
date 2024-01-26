@@ -120,12 +120,14 @@
                             <img src="img/zelle.png" width="50">
                         </div>
                         <div class="ps-4">
-                            <h6 class="text-dark mb-0">Par Zelle</h6>
-                            <!-- <h1 class="text-white mb-0" data-toggle="counter-up">12345</h1> -->
+                            <!-- <h6 class="text-dark mb-0">Par Zelle</h6> -->
+                         <p class="text-dark mb-0" data-toggle="counter-up"> Jean Edgard Francisque</p> 
+                         <p class="text-dark mb-0" data-toggle="counter-up"> efrancis0@yahoo.fr</p> 
                         </div>
                     </div>
                     </a>
                 </div>              
+                        
                             
                 
             </div>
