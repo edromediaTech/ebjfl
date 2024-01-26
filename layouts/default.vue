@@ -36,12 +36,13 @@
                     <a class="btn btn-sm  btn-sm-square rounded-circle me-2" target="blank" href="https://web.facebook.com/EBJFL/"><i class="fab fa-facebook-f fw-normal"></i></a>
                     <a class="btn btn-sm  btn-sm-square rounded-circle me-2" target="blank" href=""><i class="fab fa-instagram fw-normal"></i></a>
                     <a class="btn btn-sm  btn-sm-square rounded-circle" href="https://www.youtube.com/results?search_query=ebjfl"><i class="fab fa-youtube fw-normal"></i></a>
+                    
                 </div>
             </div>
              <div class="col-lg-8 text-center text-lg-end mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
                     <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>75, Rue St-Charles, Fort-Liberté, Haiti</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+509 3783-5081</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+509 3229-5487</small>
                     <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@ebjfl.org</small>
                 </div>
             </div>

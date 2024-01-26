@@ -123,13 +123,28 @@
                             <!-- <h6 class="text-dark mb-0">Par Zelle</h6> -->
                          <p class="text-dark mb-0" data-toggle="counter-up"> Jean Edgard Francisque</p> 
                          <p class="text-dark mb-0" data-toggle="counter-up"> efrancis0@yahoo.fr</p> 
+                         <p class="text-dark mb-0" data-toggle="counter-up">509 3368-4460</p> 
                         </div>
                     </div>
                     </a>
-                </div>              
+                </div> 
+                <v-row>
+                  
+                    <v-col cols="12" md="4" sm="6">
+                        <p>  N.B: Si vous avez besoin d'aide ecrivez-nous au  <v-icon>mdi-whatsapp</v-icon> 509 4195-8817 </p>
+                     <v-btn
+                        color="green"
+                    dark
+                    @click="redirigerVersWhatsApp"
+                    >
+                   <v-icon>mdi-whatsapp</v-icon> WhatsApp
+                    </v-btn>
+                    </v-col>
+                </v-row>             
+                
                         
                             
-                
+             
             </div>
         </div>
     </div>
@@ -240,6 +255,17 @@ export default {
             })
              
         },
+
+        redirigerVersWhatsApp() {
+      // Remplacez le numéro de téléphone par le vôtre
+      const numeroWhatsApp = '50941958817';
+
+      // Construisez le lien WhatsApp
+      const lienWhatsApp = `https://wa.me/${numeroWhatsApp}`;
+
+      // Redirigez l'utilisateur vers WhatsApp
+      window.location.href = lienWhatsApp;
+    },
         
     async sendDon() {
       this.visible = true

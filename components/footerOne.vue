@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="d-flex mb-2">
                                     <i class="bi bi-telephone text-primary me-2"></i>
-                                    <p class="mb-0">+509 3783-5081</p>
+                                    <p class="mb-0">+509 3229-5487</p>
                                 </div>
                                 <div class="d-flex mt-4">
                                     <a class="btn btn-light btn-square me-2" href="https://web.facebook.com/EBJFL/"><i class="fab fa-facebook-f fw-normal"></i></a>
@@ -50,7 +50,7 @@
                                 <div class="link-animated d-flex flex-column justify-content-start">
                                    <a class="text-light mb-2" href="/"><i class="bi bi-arrow-right text-primary me-2"></i>Accueil</a>
                                     <a class="text-light mb-2" href="/about"><i class="bi bi-arrow-right text-primary me-2"></i>A propos de Nous</a>
-                                    <a class="text-light mb-2" href="/videos"><i class="bi bi-arrow-right text-primary me-2"></i>Sermons</a>
+                                    <a class="text-light mb-2" href="/videos"><i class="bi bi-arrow-right text-primary me-2"></i>Media</a>
                                     <!-- <a class="text-light mb-2" href="/programmation"><i class="bi bi-arrow-right text-primary me-2"></i>Programmation</a> -->
                                     <a class="text-light" href="/contact"><i class="bi bi-arrow-right text-primary me-2"></i>Contact</a>
                                 </div>
