@@ -97,14 +97,32 @@
                         sm="6"
                         md="4"
                       >
-                      <v-text-field
-                            v-model="don.pays"                       
-                            label="Pays*"
-                            prepend-icon="mdi-map-marker"
-                            required
-                          ></v-text-field>
+                      <v-select                            
+                      v-model="don.pays"
+                      :items="[{text:'USA', value:USA}, {text:'Canada', value:Canada}, {text:'Chili', value:Chili},
+                                {text:'Bresil', value:Bresil}, {text:'Guyanne', value:Guyanne}, 
+                                {text:'Rep. Dominicaine', value:Dominicanie}, {text:'Mexique', value:Mexique},
+                                {text:'Turquie', value:Turquie},  {text:'Autre', value:Autre}]"                    
+                      :rules="[v => !!v || 'Choisir Pays']"
+                      label="Pays*"
+                      prepend-icon="mdi-alt-marker"
+                      required                       
+                      ></v-select>
                       </v-col>
-                    
+                                         
+                     <v-col
+                        v-if="don.pays === 'Autre'"
+                        cols="12"
+                        sm="6"
+                        md="4"
+                      >
+                      <v-text-field
+                            v-model="don.pays"                          
+                            prepend-icon="mdi-alt-marker"
+                            label="Pays*"
+                            required
+                          ></v-text-field>  
+                      </v-col>
                      <v-col
                         cols="12"
                         sm="6"
@@ -123,11 +141,11 @@
                         md="4"
                       >
                       <v-text-field
-                            v-model="don.telephone"                            
-                            prepend-icon="mdi-phone"
-                            label="Téléphone"
-                            required
-                          ></v-text-field> 
+                        v-model="don.telephone"                            
+                        prepend-icon="mdi-phone"
+                        label="Téléphone"
+                        required
+                      ></v-text-field> 
                       </v-col>
                         <v-col
                         cols="12"
@@ -150,9 +168,10 @@
                       >
                       <v-select                            
                       v-model="district"
-                      :items="districts"
+                      :items="[{text:'Bethleem', value:Bethleem}, {text:'Canaan', value:Canaan}, {text:'Nazareth', value:Nazareth},
+                                {text:'Salem', value:Salem}, {text:'Samarie', value:Samarie}, {text:'Sarepta', value:Sarepta}]"
                       :rules="[v => !!v || 'Choisir district']"
-                      label="district"
+                      label="District"
                       prepend-icon="mdi-account-multiple"
                       required                       
                       ></v-select>
@@ -163,13 +182,12 @@
                         md="4"
                       >
                     
-          <v-select
-            v-model="don.service"
-            :items="items"
-             label="Service*"
-            prepend-icon="mdi-bank-transfer"
-            
-          >
+                      <v-select
+                        v-model="don.service"
+                        :items="items"
+                        label="Service*"
+                        prepend-icon="mdi-bank-transfer"                        
+                      >
             <template #selection="{ item }">
               <v-row >
                 <v-col class="pr-2">
@@ -430,6 +448,14 @@ export default {
       const file = fileInput.files[0];
 
       if (file) {
+        if (file.size > 100 * 1024) {
+              this.$notifier.showMessage({ content: 'La taille du Fichier depasse 1 mb'})
+                return false
+          }
+        // if (!checkTypeFile(this.path_src, ['mp4', 'mp3', 'jpg'])) {
+        //   this.$notifier.showMessage('set_snackbar', { showing: true, text: ' Le type du fichier est incorrect (mp4, mp3, jpg) ' })
+        //   return false
+        // }
          const formData = new FormData();
          formData.append('image', file);
 
