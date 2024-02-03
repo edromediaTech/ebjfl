@@ -102,7 +102,8 @@
                       :items="[{text:'USA', value:USA}, {text:'Canada', value:Canada}, {text:'Chili', value:Chili},
                                 {text:'Bresil', value:Bresil}, {text:'Guyanne', value:Guyanne}, 
                                 {text:'Rep. Dominicaine', value:Dominicanie}, {text:'Mexique', value:Mexique},
-                                {text:'Turquie', value:Turquie},  {text:'Autre', value:Autre}]"                    
+                                {text:'Turquie', value:Turquie}, {text:'France', value:France}, 
+                                {text:'Bahamas', value:Bahamas}, {text:'Autre', value:Autre}]"                    
                       :rules="[v => !!v || 'Choisir Pays']"
                       label="Pays*"
                       prepend-icon="mdi-alt-marker"
@@ -167,7 +168,7 @@
                         md="4"
                       >
                       <v-select                            
-                      v-model="district"
+                      v-model="don.district"
                       :items="[{text:'Bethleem', value:Bethleem}, {text:'Canaan', value:Canaan}, {text:'Nazareth', value:Nazareth},
                                 {text:'Salem', value:Salem}, {text:'Samarie', value:Samarie}, {text:'Sarepta', value:Sarepta}]"
                       :rules="[v => !!v || 'Choisir district']"
