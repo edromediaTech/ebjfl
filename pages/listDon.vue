@@ -342,6 +342,7 @@
             { text: 'Tel', value: 'telephone' },
             { text: 'montant', value: 'montant' },        
             { text: 'devise', value:'devise' },        
+            { text: 'District', value:'district' },        
             { text: 'service', value:'service' },        
             { text: 'Numero Trans', value:'idtrans' },        
             { text: 'Actions', value: 'actions', sortable: false },
