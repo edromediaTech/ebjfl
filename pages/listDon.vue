@@ -29,7 +29,7 @@
                   sm="6"        
                   md="3">
                 <v-text-field
-                      v-if="groupes.length > 0"
+                      v-if="offrandes.length > 0"
                     v-model="search"
                     append-icon="mdi-magnify"
                     label="Search"
@@ -54,8 +54,8 @@
             class="elevation-1"
         >
          
-          <template #[`item.fondation`]="{ item }">
-            <span>{{ item.fondation | moment(" Do/MM/YYYY") }} </span>
+          <template #[`item.datetrans`]="{ item }">
+            <span>{{ item.datetrans | moment(" Do/MM/YYYY") }} </span>
           </template>
             <template #[`item.sexe`]="{ item }">
               <span>{{item.sexe ? 'M' : 'F' }} </span>
@@ -66,7 +66,38 @@
 
           <template #top>
           <v-row>
-           
+            <v-spacer />
+            <v-btn
+                    v-if="offrandes.length > 0"
+                    class="mx-2 mt-2"
+                     fab                      
+                      x-small
+                      color="info"
+                    @click=" generateReport"              
+                  >
+                  PDF
+                  <client-only>
+                     <vue-html2pdf   ref="html2Pdf"
+                      :show-layout="false"
+                      :float-layout="true"
+                      :enable-download="true"
+                      :preview-modal="false"
+                      :paginate-elements-by-height="1400"
+                      filename="Liste offrandes"
+                      :pdf-quality="2"
+                      :manual-pagination="false"
+                      pdf-format="letter"
+                      pdf-orientation="landscape"
+                      pdf-content-width="1000px"       
+                    >
+                        <template slot="pdf-content">                             
+                            <Listedonation :offrandes="offrandes" :result="result"  />                                
+                        </template>
+                    </vue-html2pdf>
+                  </client-only>             
+                  </v-btn>
+                  
+          
           <v-dialog
               v-model="dialog"
               max-width="500px"
@@ -265,302 +296,316 @@
     </v-container>
   </template>
   <script>
+import Listedonation from '~/components/listedonation.vue';
+
   
  // import membreZone from '~/components/membreZone';
      export default {
-   // components: { membreZone},    
-      //  middleware: 'responsable',          
+    components: { Listedonation },
+    // components: { membreZone},    
+    //  middleware: 'responsable',          
     data: () => ({
-        texte :'',
-        groupes:[],
-        trtexte:'',
+      result:[],
+        texte: '',
+        nomdis:'',
+        totalmont:'',
+        groupes: [],
+        trtexte: '',
         selected: [],
         dialog: false,
         visible: false,
         classe: '',
-        dataDistricts:[],
-        dataZones:[],
-        zoneNom:'',
-        zone:'',
-        zones:[],
+        dataDistricts: [],
+        dataZones: [],
+        zoneNom: '',
+        zone: '',
+        zones: [],
         district: '',
         districts: [],
-        offrandes :[],
+        offrandes: [],
         membres: [],
-        search:'',
-        departements:[],
+        search: '',
+        departements: [],
         dialogDelete: false,
-        ajouter : false,
-        sexeop : [{text:'Masculin', value:1}, {text:'Féminin', value:0}],
+        ajouter: false,
+        sexeop: [{ text: 'Masculin', value: 1 }, { text: 'Féminin', value: 0 }],
         menu: false,
         modal: false,
         menu2: false,
-        nbEleve:[],
-        transferts:[],
+        nbEleve: [],
+        transferts: [],
         centres: [],
         editedIndex: -1,
         editedItem: {
-          nom:'',
-          sigle: '',          
-          responsable: '',        
-          fondation:'',
-          email:'',
-          maestro: '',
-          telephone : '',
-          whatsapp: ''
-          },
+            nom: '',
+            sigle: '',
+            responsable: '',
+            fondation: '',
+            email: '',
+            maestro: '',
+            telephone: '',
+            whatsapp: ''
+        },
         defaultItem: {
-          nom:'',
-          sigle: '',          
-          responsable: '',        
-          fondation:'',
-          email:'',
-          maestro: '',
-          telephone : '',
-          whatsapp: ''
-            },
-            headprint: [       
+            nom: '',
+            sigle: '',
+            responsable: '',
+            fondation: '',
+            email: '',
+            maestro: '',
+            telephone: '',
+            whatsapp: ''
+        },
+        headprint: [
             { text: "Code", value: "code" },
             { text: "Nom", value: "nom" },
-            { text: "Prénom", value: "prenom" },    
+            { text: "Prénom", value: "prenom" },
             { text: 'Naissance', value: 'naissance' },
-            // { text: 'Date', value: 'datenais' },
+             { text: 'Date', value: 'datetrans' },
             { text: 'Sexe', value: 'sexe' },
             { text: 'Tel', value: 'telephone' },
-            { text: 'Prenom Mère', value: 'prenom_mere' },           
-            ]            
-      }),
-  
-      computed: {
-        
-        headers (){
-            const  headers= [       
-             { text: "Nom", value: "nom" },
-            { text: "Prenom", value: "prenom" },
-            { text: "Pays", value: "pays" },    
-             { text: 'Ville', value: 'ville' },             
-            { text: 'Tel', value: 'telephone' },
-            { text: 'montant', value: 'montant' },        
-            { text: 'devise', value:'devise' },        
-            { text: 'District', value:'district' },        
-            { text: 'service', value:'service' },        
-            { text: 'Numero Trans', value:'idtrans' },        
-            { text: 'Actions', value: 'actions', sortable: false },
-         ];
-        if (this.editedItem.sexe === true){
-             headers.push({ text: "Masculin", value: true })
-             headers.push({ text: "Féminin", value: false})
-           }
-        return headers
-          },
-  
-        formTitle () {
-          return this.editedIndex === -1 ? 'Membre' : 'Editer '
+            { text: 'Prenom Mère', value: 'prenom_mere' },
+        ]
+    }),
+    computed: {
+        headers() {
+            const headers = [
+                { text: "Nom", value: "nom" },
+                { text: "Prenom", value: "prenom" },
+                { text: "Pays", value: "pays" },
+                { text: 'Ville', value: 'ville' },
+                { text: 'Tel', value: 'telephone' },
+                { text: 'montant', value: 'montant' },
+                { text: 'devise', value: 'devise' },
+                { text: 'District', value: 'district' },
+                { text: 'service', value: 'service' },
+                { text: 'Date', value: 'datetrans' },
+                // { text: 'Numero Trans', value: 'datetrans' },
+                { text: 'Actions', value: 'actions', sortable: false },
+            ];
+            if (this.editedItem.sexe === true) {
+                headers.push({ text: "Masculin", value: true });
+                headers.push({ text: "Féminin", value: false });
+            }
+            return headers;
         },
-      },
-  
-      watch: {
-        dialog (val) {
-          val || this.close()
+        formTitle() {
+            return this.editedIndex === -1 ? 'Membre' : 'Editer ';
         },
-        dialogDelete (val) {
-          val || this.closeDelete()
+    },
+    watch: {
+        dialog(val) {
+            val || this.close();
         },
-      },
-  
-      created () {
-      // this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')
-      },
-  
-      mounted () {
-        this.getOffrandes()
-      // this.getMembres()
+        dialogDelete(val) {
+            val || this.closeDelete();
+        },
+    },
+    created() {
+        // this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')
+    },
+    mounted() {
+        this.getOffrandes();
        
+        // this.getMembres()
+    },
+    methods: {
+        async getOffrandes() {
+            this.visible = true;
+            // this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')
+            await this.$axios.get('don/').then(response => {
+             // console.log(response.data)
+                this.offrandes = response.data;
+              this.result = this.statistic(this.offrandes)
+              console.log(this.result)
+                this.visible = false;
+            });
         },
-  
-      methods: {
-  
-        async getOffrandes(){ 
-          this.visible = true                
-              // this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.getItem('authToken')
-                   await this.$axios.get('don/').then(response => { 
-                   this.offrandes = response.data                 
-                            
-                 this.visible = false              
-              })
-               
-          },
-        downloadPdf (){          
-        },
-  
-        async beforeDownload ({ html2pdf, options, pdfContent }) {
-              await html2pdf().set(options).from(pdfContent).toPdf().get('pdf').then((pdf) => {
-                  const totalPages = pdf.internal.getNumberOfPages()
-                  for (let i = 1; i <= totalPages; i++) {
-                      pdf.setPage(i)
-                      pdf.setFontSize(10)
-                      pdf.setTextColor(150)
-                      pdf.text('Page ' + i + ' de ' + totalPages, (pdf.internal.pageSize.getWidth() * 0.88), (pdf.internal.pageSize.getHeight() - 0.3))
-                  } 
-              }).save()
-          },
 
-        setTexte(){
-          this.zoneNom =  (this.zones.find(el => el.value === this.zone)).text
-          this.texte = 'Liste des membres de la zone: '+ (this.zones.find(el => el.value === this.zone)).text +' du district '+ (this.districts.find(el => el.value === this.district)).text
-        },
-       
-        generateReport () {
-          this.setTexte()
-              this.$refs.html2Pdf.generatePdf()
-          },
-  
-                   
-      
-  
-        getZones(){
-          this.zones = [] 
-              this.dataDistricts.forEach((d) =>{              
-                if(d.zones[0].district === this.district){
-                  const da = d.zones 
-                  this.dataZones = da             
-                  for(let i =0; i<da.length; i++){               
-                     this.zones.push({text:da[i].nom, value:da[i]._id})              
-                  }  
-                              
-            return true
-              }       
-                
-            }) 
-            
-            return false                            
-             },
-           
-            
+        statistic(data) {
+  const totalByDistrict = {};
+
+  data.forEach(item => {
+    const district = item.district;
+    const amount = item.montant;
+
+    if (totalByDistrict[district]) {
+      totalByDistrict[district] += amount;
+    } else {
+      totalByDistrict[district] = amount;
+    }
+  });
+
+  const result = Object.keys(totalByDistrict).map(district => ({
+    district,
+    totalAmount: totalByDistrict[district],
     
-    deleteGroup (groupe) {          
-          this.$axios.delete('groupechant/' + groupe._id).then(res => {         
-            if (res.status === 200) {
-                this.$notifier.showMessage({ content: 'Groupe supprimé', color: 'success' })            
-              return true 
-              } 
-              else {           
-              return false }
-          })
+  }));
+  
+ // console.log(result);
+  return result;
+},
+
+convertirDateEnFrancais(date) {
+    // Tableau des noms des mois en français
+    const moisEnFrancais = [
+        "janvier", "février", "mars", "avril", "mai", "juin",
+        "juillet", "août", "septembre", "octobre", "novembre", "décembre"
+    ];
+
+    // Obtenir le jour, le mois et l'année de la date
+    const jour = date.getDate();
+    const mois = moisEnFrancais[date.getMonth()];
+    const annee = date.getFullYear();
+
+    // Construire la chaîne de date en français
+    const dateEnFrancais = jour + " " + mois + " " + annee;
+
+    return dateEnFrancais;
+},
+
+        downloadPdf() {
         },
-  
-     updateGroup(groupe) {  
-          this.visible = true                  
-          this.$axios.patch( 'groupechant/' + groupe._id, this.editedItem).then(res => {
-             if (res.status === 201) { 
-                 this.$notifier.showMessage({ content: 'groupe modifié', color: 'success' })            
-                   return true 
-              } 
-              else {   
-                this.$notifier.showMessage({ content: 'Echec', color: 'error' })         
-                 return false 
-              }                  
-          })
-           this.visible = false
+        async beforeDownload({ html2pdf, options, pdfContent }) {
+            await html2pdf().set(options).from(pdfContent).toPdf().get('pdf').then((pdf) => {
+                const totalPages = pdf.internal.getNumberOfPages();
+                for (let i = 1; i <= totalPages; i++) {
+                    pdf.setPage(i);
+                    pdf.setFontSize(10);
+                    pdf.setTextColor(150);
+                    pdf.text('Page ' + i + ' de ' + totalPages, (pdf.internal.pageSize.getWidth() * 0.88), (pdf.internal.pageSize.getHeight() - 0.3));
+                }
+            }).save();
         },
-  
-  
-       editItem (item) {      
-          this.editedIndex = this.groupes.indexOf(item)
-          this.editedItem = Object.assign({}, item)
-          this.dialog = true
-       },
-  
-        deleteItem (item) {
-          this.editedIndex = this.groupes.indexOf(item)
-          this.editedItem = Object.assign({}, item)
-          this.dialogDelete = true
+        setTexte() {
+            this.zoneNom = (this.zones.find(el => el.value === this.zone)).text;
+            this.texte = 'Liste des membres de la zone: ' + (this.zones.find(el => el.value === this.zone)).text + ' du district ' + (this.districts.find(el => el.value === this.district)).text;
         },
-  
-      deleteItemConfirm () {
-          //  if(checkHaveChildren(this.editedItem) === true){             
-          //        this.$notifier.showMessage({ content: 'Suppression echouée', color: 'error' })
-          //         this.closeDelete()    
-          //        return false
-          //   }
-          this.deleteGroup(this.editedItem)       
-          this.groupes.splice(this.editedIndex, 1)
-          this.closeDelete()
+        generateReport() {
+            // this.setTexte();
+            this.$refs.html2Pdf.generatePdf();
         },
-  
-      save(){              
-           if (this.editedIndex > -1) {          
-              this.updateGroup(this.editedItem)
-              Object.assign(this.groupes[this.editedIndex], this.editedItem)
-            } 
-           else {
-                 this.storeGroupe()
-              }
-            this.close()
+        getZones() {
+            this.zones = [];
+            this.dataDistricts.forEach((d) => {
+                if (d.zones[0].district === this.district) {
+                    const da = d.zones;
+                    this.dataZones = da;
+                    for (let i = 0; i < da.length; i++) {
+                        this.zones.push({ text: da[i].nom, value: da[i]._id });
+                    }
+                    return true;
+                }
+            });
+            return false;
         },
-  
-          close(){  
-              this.editedItem = {}                
-              this.dialog=false              
-          },
-          
-        closeDelete () {
-          this.dialogDelete = false
-          this.$nextTick(() => {
-            this.editedItem = Object.assign({}, this.defaultItem)
-            this.editedIndex = -1
-          })
+        deleteGroup(groupe) {
+            this.$axios.delete('groupechant/' + groupe._id).then(res => {
+                if (res.status === 200) {
+                    this.$notifier.showMessage({ content: 'Groupe supprimé', color: 'success' });
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            });
         },
-  
-    getAge(dateString) {
-      const today = new Date();
-      const birthDate = new Date(dateString);
-      let age = today.getFullYear() - birthDate.getFullYear();
-      const m = today.getMonth() - birthDate.getMonth();
-      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-          age--;
-      }
-      return age;
-  },
-  
-    check_age(classe, naissance){
-            if(parseInt(this.getAge(naissance)) < classe)
-              return false;
+        updateGroup(groupe) {
+            this.visible = true;
+            this.$axios.patch('groupechant/' + groupe._id, this.editedItem).then(res => {
+                if (res.status === 201) {
+                    this.$notifier.showMessage({ content: 'groupe modifié', color: 'success' });
+                    return true;
+                }
+                else {
+                    this.$notifier.showMessage({ content: 'Echec', color: 'error' });
+                    return false;
+                }
+            });
+            this.visible = false;
+        },
+        editItem(item) {
+            this.editedIndex = this.groupes.indexOf(item);
+            this.editedItem = Object.assign({}, item);
+            this.dialog = true;
+        },
+        deleteItem(item) {
+            this.editedIndex = this.groupes.indexOf(item);
+            this.editedItem = Object.assign({}, item);
+            this.dialogDelete = true;
+        },
+        deleteItemConfirm() {
+            //  if(checkHaveChildren(this.editedItem) === true){             
+            //        this.$notifier.showMessage({ content: 'Suppression echouée', color: 'error' })
+            //         this.closeDelete()    
+            //        return false
+            //   }
+            this.deleteGroup(this.editedItem);
+            this.groupes.splice(this.editedIndex, 1);
+            this.closeDelete();
+        },
+        save() {
+            if (this.editedIndex > -1) {
+                this.updateGroup(this.editedItem);
+                Object.assign(this.groupes[this.editedIndex], this.editedItem);
+            }
+            else {
+                this.storeGroupe();
+            }
+            this.close();
+        },
+        close() {
+            this.editedItem = {};
+            this.dialog = false;
+        },
+        closeDelete() {
+            this.dialogDelete = false;
+            this.$nextTick(() => {
+                this.editedItem = Object.assign({}, this.defaultItem);
+                this.editedIndex = -1;
+            });
+        },
+        getAge(dateString) {
+            const today = new Date();
+            const birthDate = new Date(dateString);
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            return age;
+        },
+        check_age(classe, naissance) {
+            if (parseInt(this.getAge(naissance)) < classe)
+                return false;
             return true;
         },
-  
-       
-      async storeMembre () {  
-           if(this.editedItem.nom ==='' || this.editedItem.prenom ==='' || this.editedItem.sexe ===''){
-             this.$notifier.showMessage({ content: 'Veuillez saisir les champs obligatoires', color: 'error' })
-            return false  
-          } 
-          this.visible = true        
-             this.editedItem.zone = this.zone           
-          this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.authToken         
-          await this.$axios.post('membre/', this.editedItem).then(res => {                           
-            if (res.status === 201) {
-               this.membres.push(res.data)
-               this.nbMembre = this.membres.length
-               this.$notifier.showMessage({ content: 'Enregistrement réussi', color: 'success' })    
-                 } else {
-               this.$notifier.showMessage({ content: 'Echec:', color: 'error' })       
-               }
-          })
-          this.loading = false
-           this.visible = false
+        async storeMembre() {
+            if (this.editedItem.nom === '' || this.editedItem.prenom === '' || this.editedItem.sexe === '') {
+                this.$notifier.showMessage({ content: 'Veuillez saisir les champs obligatoires', color: 'error' });
+                return false;
+            }
+            this.visible = true;
+            this.editedItem.zone = this.zone;
+            this.$axios.defaults.headers.common.Authorization = 'Bearer ' + localStorage.authToken;
+            await this.$axios.post('membre/', this.editedItem).then(res => {
+                if (res.status === 201) {
+                    this.membres.push(res.data);
+                    this.nbMembre = this.membres.length;
+                    this.$notifier.showMessage({ content: 'Enregistrement réussi', color: 'success' });
+                }
+                else {
+                    this.$notifier.showMessage({ content: 'Echec:', color: 'error' });
+                }
+            });
+            this.loading = false;
+            this.visible = false;
         },
-  
-       
-  
-       
-        showSnackbar (){
-           this.$notifier.showMessage({ content: 'veuillez saisir les champs obligatoires', color: 'info' })             
+        showSnackbar() {
+            this.$notifier.showMessage({ content: 'veuillez saisir les champs obligatoires', color: 'info' });
         },
-  
-       
-      },
     }
+}
   </script>
   <style scoped>
   /* .v-progress-circular {
